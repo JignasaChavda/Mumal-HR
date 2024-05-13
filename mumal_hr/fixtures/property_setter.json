@@ -1,0 +1,53 @@
+[
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "default_value": null,
+  "doc_type": "Job Applicant",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocField",
+  "field_name": "cover_letter",
+  "is_system_generated": 0,
+  "modified": "2024-05-13 10:49:44.829852",
+  "module": "Mumal HR",
+  "name": "Job Applicant-cover_letter-hidden",
+  "property": "hidden",
+  "property_type": "Check",
+  "row_name": null,
+  "value": "1"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "default_value": null,
+  "doc_type": "Job Requisition",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocType",
+  "field_name": null,
+  "is_system_generated": 0,
+  "modified": "2024-05-13 10:49:25.486957",
+  "module": "Mumal HR",
+  "name": "Job Requisition-main-field_order",
+  "property": "field_order",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "[\"naming_series\", \"designation\", \"department\", \"custom_location\", \"custom_type\", \"column_break_qkna\", \"custom_replacement_of\", \"custom_replaced_employee_name\", \"no_of_positions\", \"expected_compensation\", \"custom_requisition_by\", \"custom_transfer_record\", \"custom_promotion_record\", \"column_break_4\", \"company\", \"status\", \"custom_referenced_by\", \"custom_referring_person\", \"custom_referring_person_name\", \"section_break_7\", \"requested_by\", \"requested_by_name\", \"column_break_10\", \"requested_by_dept\", \"requested_by_designation\", \"timelines_tab\", \"posting_date\", \"completed_on\", \"column_break_15\", \"expected_by\", \"time_to_fill\", \"custom_authorities_review\", \"custom_authoroties_comments\", \"job_description_tab\", \"custom_desired_experience\", \"custom_required_skill_set\", \"description\", \"reason_for_requesting\", \"custom_recruitment_requisition_procedure\", \"custom_requisition_procedure\", \"custom_for_hr_purpose\", \"custom_receiving_date_requisition\", \"custom_when_position_can_be_filled_up\", \"custom_remarks\", \"connections_tab\"]"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "default_value": null,
+  "doc_type": "Job Applicant",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocType",
+  "field_name": null,
+  "is_system_generated": 0,
+  "modified": "2024-05-13 10:49:52.358358",
+  "module": "Mumal HR",
+  "name": "Job Applicant-main-field_order",
+  "property": "field_order",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "[\"details_section\", \"custom_posting_date\", \"applicant_name\", \"email_id\", \"country\", \"column_break_3\", \"job_title\", \"designation\", \"status\", \"custom_qualifications_and_experience\", \"custom_qualifications\", \"custom_experience\", \"custom_current_salary\", \"custom_designation\", \"custom_column_break_wjipp\", \"custom_name_of_present_organization\", \"custom_working_since\", \"custom_reason_of_leaving\", \"custom_notice_period\", \"custom_address__contact_details\", \"phone_number\", \"custom_age\", \"custom_current_address\", \"custom_column_break_wl8w3\", \"custom_caste\", \"custom_category\", \"custom_spouse_name\", \"custom_spouse_occupation\", \"custom_permanent_address\", null, \"custom_family_members_details\", \"source_and_rating_section\", \"source\", \"source_name\", \"custom_reference_by\", \"employee_referral\", \"column_break_13\", \"applicant_rating\", \"section_break_6\", \"notes\", \"cover_letter\", \"resume_attachment\", \"resume_link\", \"section_break_16\", \"currency\", \"column_break_18\", \"lower_range\", \"upper_range\", \"custom_section_break_resuz\", \"custom_any_other_critical_relevant_information\"]"
+ }
+]

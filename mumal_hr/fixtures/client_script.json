@@ -1,0 +1,14 @@
+[
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Interview Feedback",
+  "enabled": 1,
+  "modified": "2024-05-13 10:50:39.256586",
+  "module": "Mumal HR",
+  "name": "Autoset skill in interview feedback",
+  "script": "frappe.ui.form.on('Interview Feedback', {\n\tonload(frm) {\n\t\t\n\t\tif (frm.is_new()) {\n            var ids = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial  quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var ids1 = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n            var row;\n\n            for (var i = 0; i < ids.length; i++) {\n                row = frm.add_child(\"custom_rating\");\n                row.competency = ids[i];\n                row.personal_characteristics = ids1[i];\n                frm.refresh_field(\"custom_rating\");\n            }\n        }\n\t}\n});\n\n",
+  "view": "Form"
+ }
+]

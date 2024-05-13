@@ -213,3 +213,34 @@ app_license = "MIT"
 # auth_hooks = [
 # 	"mumal_hr.auth.validate"
 # ]
+fixtures = [
+    {"dt":"Custom Field","filters":[
+        [
+            "module","in",[
+                "Mumal HR"
+            ]
+        ]
+    ]},
+    {"dt":"Property Setter","filters":[
+        [
+            "module","in",[
+                "Mumal HR"
+            ]
+        ]
+    ]},
+    {"dt":"Client Script","filters":[
+        [
+            "module","in",[
+                "Mumal HR"
+            ]
+        ]
+    ]},
+    {"dt":"Server Script","filters":[
+        [
+            "module","in",[
+                "Mumal HR"
+            ]
+        ]
+    ]}
+
+]

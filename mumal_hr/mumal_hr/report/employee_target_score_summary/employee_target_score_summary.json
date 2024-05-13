@@ -1,0 +1,32 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-04-29 13:07:34.562013",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "modified": "2024-04-30 16:16:58.965465",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Employee Target Score Summary",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    'Work not done' AS Criteria,\n    COUNT(t.name) AS 'Planned Score',\n    0 AS 'Actual Score',\n    0 AS 'Actual Percentage'\nFROM\n    `tabTask` t\nWHERE\n    t.custom_assigned_to = %(user)s\n\nUNION\n\nSELECT\n    'Work not done on time' AS Criteria,\n    0 AS 'Planned Score',\n    0 AS 'Actual Score',\n    0 AS 'Actual Percentage'\n",
+ "ref_doctype": "Task",
+ "report_name": "Employee Target Score Summary",
+ "report_script": "",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Projects User"
+  },
+  {
+   "role": "Employee Self Service"
+  }
+ ]
+}
