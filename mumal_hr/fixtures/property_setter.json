@@ -49,5 +49,21 @@
   "property_type": "Data",
   "row_name": null,
   "value": "[\"details_section\", \"custom_posting_date\", \"applicant_name\", \"email_id\", \"country\", \"column_break_3\", \"job_title\", \"designation\", \"status\", \"custom_qualifications_and_experience\", \"custom_qualifications\", \"custom_experience\", \"custom_current_salary\", \"custom_designation\", \"custom_column_break_wjipp\", \"custom_name_of_present_organization\", \"custom_working_since\", \"custom_reason_of_leaving\", \"custom_notice_period\", \"custom_address__contact_details\", \"phone_number\", \"custom_age\", \"custom_current_address\", \"custom_column_break_wl8w3\", \"custom_caste\", \"custom_category\", \"custom_spouse_name\", \"custom_spouse_occupation\", \"custom_permanent_address\", null, \"custom_family_members_details\", \"source_and_rating_section\", \"source\", \"source_name\", \"custom_reference_by\", \"employee_referral\", \"column_break_13\", \"applicant_rating\", \"section_break_6\", \"notes\", \"cover_letter\", \"resume_attachment\", \"resume_link\", \"section_break_16\", \"currency\", \"column_break_18\", \"lower_range\", \"upper_range\", \"custom_section_break_resuz\", \"custom_any_other_critical_relevant_information\"]"
+ },
+ {
+  "default_value": null,
+  "doc_type": "Job Offer",
+  "docstatus": 0,
+  "doctype": "Property Setter",
+  "doctype_or_field": "DocType",
+  "field_name": null,
+  "is_system_generated": 0,
+  "modified": "2024-05-14 11:07:31.361077",
+  "module": "Mumal HR",
+  "name": "Job Offer-main-field_order",
+  "property": "field_order",
+  "property_type": "Data",
+  "row_name": null,
+  "value": "[\"job_applicant\", \"applicant_name\", \"applicant_email\", \"column_break_3\", \"status\", \"offer_date\", \"designation\", \"company\", \"section_break_4\", \"job_offer_term_template\", \"offer_terms\", \"section_break_14\", \"select_terms\", \"terms\", \"printing_details\", \"letter_head\", \"column_break_16\", \"select_print_heading\", \"amended_from\", null, null, null, null]"
  }
 ]
