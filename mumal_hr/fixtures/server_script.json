@@ -1,1 +1,19 @@
-[]
+[
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "event_frequency": "All",
+  "modified": "2024-07-04 13:15:19.477307",
+  "module": "Mumal HR",
+  "name": "Not allowed to Create/Update Job Offer against 'Closed' Job Opening",
+  "reference_doctype": "Job Offer",
+  "script": "if doc.custom__job_opening_:\n    job_opening_doc = frappe.get_doc('Job Opening', doc.custom__job_opening_)\n    if job_opening_doc.status == 'Closed':\n        frappe.throw(f'{doc.custom__job_opening_} Job Opening is closed.')\n",
+  "script_type": "DocType Event"
+ }
+]

@@ -1,0 +1,72 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-09 10:52:36.626684",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "date_of_birth",
+  "relationship_with_insured_person",
+  "column_break_k788x",
+  "whether_residing_with_himher_or_not",
+  "town",
+  "state"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "relationship_with_insured_person",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Relationship with insured person"
+  },
+  {
+   "fieldname": "whether_residing_with_himher_or_not",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Whether residing with him/her or not"
+  },
+  {
+   "fieldname": "town",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Town"
+  },
+  {
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State"
+  },
+  {
+   "fieldname": "column_break_k788x",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-09 12:34:41.230822",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Family Particulars of Insured Person",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

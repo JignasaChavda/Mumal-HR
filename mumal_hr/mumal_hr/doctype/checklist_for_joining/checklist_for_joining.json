@@ -1,0 +1,37 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-09 12:03:27.598983",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "documents",
+  "submitted"
+ ],
+ "fields": [
+  {
+   "fieldname": "documents",
+   "fieldtype": "Data",
+   "label": "Documents"
+  },
+  {
+   "default": "0",
+   "fieldname": "submitted",
+   "fieldtype": "Check",
+   "label": "Submitted"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-09 12:03:27.598983",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Checklist for Joining",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

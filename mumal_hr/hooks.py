@@ -241,6 +241,13 @@ fixtures = [
                 "Mumal HR"
             ]
         ]
+    ]},
+    {"dt":"Print Format","filters":[
+        [
+            "module","in",[
+                "Mumal HR"
+            ]
+        ]
     ]}
 
 ]

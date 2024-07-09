@@ -1,0 +1,59 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-09 12:01:51.700514",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name_of_relative",
+  "department",
+  "column_break_ntben",
+  "location",
+  "relationship"
+ ],
+ "fields": [
+  {
+   "fieldname": "name_of_relative",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name of Relative"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Location"
+  },
+  {
+   "fieldname": "relationship",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Relationship"
+  },
+  {
+   "fieldname": "column_break_ntben",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-09 12:31:39.234418",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Relatives in company",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

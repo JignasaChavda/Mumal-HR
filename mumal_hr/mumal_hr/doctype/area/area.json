@@ -1,0 +1,87 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:area",
+ "creation": "2024-07-09 11:01:29.584247",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "area",
+  "city",
+  "state",
+  "country",
+  "column_break_8ginw",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Locality/Area",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "City",
+   "options": "City",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "city.state",
+   "fieldname": "state",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "State",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "city.country",
+   "fieldname": "country",
+   "fieldtype": "Data",
+   "label": "Country",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "fieldname": "column_break_8ginw",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-09 12:32:44.079376",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Area",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

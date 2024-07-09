@@ -1,0 +1,65 @@
+{
+ "_liked_by": "[\"Administrator\"]",
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-09 10:50:39.634955",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "relationship_with_the_employee",
+  "percentage",
+  "column_break_ysz4w",
+  "age_of_nominee",
+  "address"
+ ],
+ "fields": [
+  {
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name"
+  },
+  {
+   "fieldname": "relationship_with_the_employee",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Relationship with the Employee"
+  },
+  {
+   "fieldname": "percentage",
+   "fieldtype": "Percent",
+   "in_list_view": 1,
+   "label": "Percentage"
+  },
+  {
+   "fieldname": "age_of_nominee",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Age of Nominee"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Address"
+  },
+  {
+   "fieldname": "column_break_ysz4w",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-09 12:34:58.826967",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Nominee Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
