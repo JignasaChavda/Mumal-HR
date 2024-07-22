@@ -1,13 +1,26 @@
 [
  {
+  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Interview Feedback",
   "enabled": 1,
-  "modified": "2024-05-13 10:50:39.256586",
+  "modified": "2024-07-19 17:56:28.507609",
   "module": "Mumal HR",
   "name": "Autoset skill in interview feedback",
-  "script": "frappe.ui.form.on('Interview Feedback', {\n\tonload(frm) {\n\t\t\n\t\tif (frm.is_new()) {\n            var ids = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial  quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var ids1 = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n            var row;\n\n            for (var i = 0; i < ids.length; i++) {\n                row = frm.add_child(\"custom_rating\");\n                row.competency = ids[i];\n                row.personal_characteristics = ids1[i];\n                frm.refresh_field(\"custom_rating\");\n            }\n        }\n\t}\n});\n\n",
+  "script": "frappe.ui.form.on('Interview Feedback', {\n    onload(frm) {\n        if (frm.is_new()) {\n            var competencies = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var characteristics = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n\n            var existing_competencies = frm.doc.custom_ratings.map(function(row) {\n                return row.competency;\n            });\n\n            for (var i = 0; i < competencies.length; i++) {\n                if (!existing_competencies.includes(competencies[i])) {\n                    var row = frm.add_child(\"custom_ratings\");\n                    row.competency = competencies[i];\n                    if (i < characteristics.length) {\n                        row.personal_characteristics = characteristics[i];\n                    }\n                }\n            }\n            frm.refresh_field(\"custom_ratings\");\n        }\n    }\n});\n",
+  "view": "Form"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Job Opening",
+  "enabled": 1,
+  "modified": "2024-07-19 17:56:28.364265",
+  "module": "Mumal HR",
+  "name": "Set job title based on staffing plan",
+  "script": "frappe.ui.form.on('Job Opening', {\n\tdesignation:function(frm) {\n\t\tvar plan = frm.doc.staffing_plan;\n\t\tvar desi = frm.doc.designation;\n\t\tvar req = frm.doc.job_requisition;\n\t\tif (desi){\n\t\t    frm.set_value('job_title',desi);\n    \t\tfrm.refresh_field('job_title');\n\t\t}\n\t\tif (plan){\n    \t\tvar title = plan+\"-\"+desi;\n    \t\tfrm.set_value('__newname',title);\n    \t\tfrm.refresh_field('__newname');\n\t\t} else if(req) {\n\t\t    var title = req+\"-\"+desi;\n    \t\tfrm.set_value('__newname',title);\n    \t\tfrm.refresh_field('__newname');\n\t\t}\n\t}\n})      ",
   "view": "Form"
  },
  {
@@ -16,10 +29,46 @@
   "doctype": "Client Script",
   "dt": "Employee",
   "enabled": 1,
-  "modified": "2024-07-09 18:49:41.095835",
+  "modified": "2024-07-19 17:56:28.325396",
   "module": "Mumal HR",
   "name": "Set Probation Date in Employee Master",
   "script": "frappe.ui.form.on('Employee', {\n    probation_period: function(frm) {\n        var doj = frm.doc.date_of_joining;\n        var probation_period = frm.doc.probation_period;\n\n        if (doj && probation_period) {\n            var training_probation_days = probation_period * 60;\n            var end_date = frappe.datetime.add_days(doj, training_probation_days);\n            var formatted_date = frappe.datetime.str_to_user(end_date);\n\n            frm.set_value('probation_period_end_date', formatted_date);\n            frm.refresh_field('probation_period_end_date');\n        }\n    },\n    date_of_joining: function(frm) {\n        var doj = frm.doc.date_of_joining;\n        var probation_period = frm.doc.probation_period;\n\n        if (doj && probation_period) {\n            var training_probation_days = probation_period * 60;\n            var end_date = frappe.datetime.add_days(doj, training_probation_days);\n            var formatted_date = frappe.datetime.str_to_user(end_date); \n\n            frm.set_value('probation_period_end_date', formatted_date);\n            frm.refresh_field('probation_period_end_date');\n        }\n    }\n});\n",
+  "view": "Form"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Job Applicant",
+  "enabled": 1,
+  "modified": "2024-07-19 17:56:28.408826",
+  "module": "Mumal HR",
+  "name": "Filter interview status based on interview round in job applicant",
+  "script": "frappe.ui.form.on('Job Applicant', {\n\tonload:function(frm) {\n\t\tvar interview_round = frm.doc.custom_interview_round;\n\t\tvar interview_status = frm.doc.custom_interview_status;\n\t\t\n\t\tvar interview_round_list = ['HR Round', 'Department Round', 'Management Round', 'General Round'];\n\t\tvar job_offer_list = ['Job Offer'];\n\t\t\n\t\t\n\t\tif (interview_round_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Pending', 'Under Review', 'Cleared', 'Rejected', 'Not Appeared']);\n\t\t}\n\t\telse if (job_offer_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Awaiting Response', 'Accpeted', 'Rejected']);\n\t\t}\n\t\t\n\t},\n\t\n\tcustom_interview_round:function(frm) {\n\t\tvar interview_round = frm.doc.custom_interview_round;\n\t\tvar interview_status = frm.doc.custom_interview_status;\n\t\t\n\t\tvar interview_round_list = ['HR Round', 'Department Round', 'Management Round', 'General Round'];\n\t\tvar job_offer_list = ['Job Offer'];\n\t\t\n\t\t\n\t\tif (interview_round_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Pending', 'Under Review', 'Cleared', 'Rejected', 'Not Appeared']);\n\t\t}\n\t\telse if (job_offer_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Awaiting Response', 'Accpeted', 'Rejected']);\n\t\t}\n\t\t\n\t}\n});",
+  "view": "Form"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Staffing Plan",
+  "enabled": 1,
+  "modified": "2024-07-19 17:56:28.443171",
+  "module": "Mumal HR",
+  "name": "Update the staffing plan hired vacancy",
+  "script": "frappe.ui.form.on('Staffing Plan', {\n    refresh:function(frm) {\n        \n        var name = frm.doc.name; \n\n        \n        frm.doc.staffing_details.forEach(detail => {\n            var designation = detail.designation;\n            var child_name = detail.name;\n            console.log(name);\n            console.log(designation);\n            \n            frappe.db.get_list('Job Opening', {\n                fields: ['custom_hired_vacancy'],\n                filters: {\n                    designation: designation,\n                    staffing_plan: name\n                },\n            }).then(result => {\n                if (result.length > 0) {\n                    var customHiredVacancy = result[0].custom_hired_vacancy;\n                    console.log(customHiredVacancy);\n                    \n                    frappe.db.set_value('Staffing Plan Detail', child_name, 'custom_hired_vacancy', customHiredVacancy);\n                    frm.refresh_field('custom_hired_vacancy');\n                    \n                }\n            });\n        });\n    }\n});\n",
+  "view": "Form"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Interview Feedback",
+  "enabled": 1,
+  "modified": "2024-07-19 17:56:28.474181",
+  "module": "Mumal HR",
+  "name": "Update date formate in interview feedback",
+  "script": "frappe.ui.form.on('Interview Feedback', {\n\tinterview:function(frm) {\n\t\tvar date = frm.doc.interview;\n\t\t\n\t\tvar formatted_date = frappe.datetime.str_to_user(date);\n\t\tconsole.log(formatted_date)\n\t\t\n\t\tfrm.set_value('custom_date_of_interview', formatted_date);\n\t\tfrm.refresh_field('custom_date_of_interview');\n\t\t\n\t}\n});",
   "view": "Form"
  }
 ]

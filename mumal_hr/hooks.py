@@ -57,6 +57,9 @@ app_license = "MIT"
 # 	"methods": "mumal_hr.utils.jinja_methods",
 # 	"filters": "mumal_hr.utils.jinja_filters"
 # }
+# custom_hrms/custom_hrms/hooks.py
+
+
 
 # Installation
 # ------------
@@ -108,9 +111,10 @@ app_license = "MIT"
 # ---------------
 # Override standard doctype classes
 
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
+override_doctype_class = {
+	"Interview": "mumal_hr.overrides.interview.Interview",
+    "Job Offer": "mumal_hr.overrides.job_offer.JobOffer"
+}
 
 # Document Events
 # ---------------
@@ -145,6 +149,14 @@ app_license = "MIT"
 # 	],
 # }
 
+scheduler_events = {
+    "cron": {
+        "0 0 * * *": [
+            "mumal_hr.api.birthday_reminder" #Every day 12:00 Midnight in Run
+        ]
+    }
+}
+
 # Testing
 # -------
 
@@ -153,9 +165,9 @@ app_license = "MIT"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "mumal_hr.event.get_events"
-# }
+override_whitelisted_methods = {
+	"hrms.hr.doctype.job_applicant.job_applicant.create_interview": "mumal_hr.overrides.job_applicant.create_interview"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

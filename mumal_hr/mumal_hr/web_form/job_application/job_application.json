@@ -1,5 +1,5 @@
 {
- "_liked_by": "[]",
+ "_liked_by": "[\"Administrator\"]",
  "allow_comments": 1,
  "allow_delete": 0,
  "allow_edit": 0,
@@ -20,7 +20,7 @@
  "list_columns": [],
  "login_required": 0,
  "max_attachment_size": 0,
- "modified": "2024-07-04 13:03:13.251343",
+ "modified": "2024-07-18 13:14:59.045658",
  "modified_by": "Administrator",
  "module": "Mumal HR",
  "name": "job-application",
@@ -49,13 +49,14 @@
   },
   {
    "allow_read_on_all_link_options": 0,
-   "fieldname": "designation",
-   "fieldtype": "Link",
+   "default": "Today",
+   "fieldname": "custom_posting_date",
+   "fieldtype": "Date",
    "hidden": 0,
-   "label": "Designation",
+   "label": "Posting Date",
    "max_length": 0,
    "max_value": 0,
-   "options": "Designation",
+   "options": "",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
@@ -100,6 +101,7 @@
   },
   {
    "allow_read_on_all_link_options": 0,
+   "default": "India",
    "fieldname": "country",
    "fieldtype": "Link",
    "hidden": 0,
@@ -515,7 +517,7 @@
    "label": "Family Members Details",
    "max_length": 0,
    "max_value": 0,
-   "options": "Family Details",
+   "options": "Family Background",
    "read_only": 0,
    "reqd": 0,
    "show_in_filter": 0
