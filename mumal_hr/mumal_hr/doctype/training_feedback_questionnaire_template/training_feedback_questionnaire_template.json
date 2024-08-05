@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:TRFB-QUETMP-{#####}",
+ "creation": "2024-07-24 12:05:48.921888",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "training_event",
+  "feedback_questionnaire"
+ ],
+ "fields": [
+  {
+   "fieldname": "training_event",
+   "fieldtype": "Link",
+   "label": "Training Event",
+   "options": "Training Event"
+  },
+  {
+   "fieldname": "feedback_questionnaire",
+   "fieldtype": "Table",
+   "label": "Feedback Questionnaire",
+   "options": "Training Feedback Questions"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-07-24 13:47:52.541879",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Training Feedback Questionnaire Template",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

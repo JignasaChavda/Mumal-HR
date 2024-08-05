@@ -1,6 +1,5 @@
 [
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -9,7 +8,7 @@
   "doctype": "Server Script",
   "doctype_event": "Before Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.692464",
+  "modified": "2024-08-05 13:20:05.951388",
   "module": "Mumal HR",
   "name": "Not Allowed to create Job Opening on InActive Staffing Plan",
   "reference_doctype": "Job Opening",
@@ -17,7 +16,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -26,7 +24,7 @@
   "doctype": "Server Script",
   "doctype_event": "Before Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.681669",
+  "modified": "2024-08-05 13:20:05.987750",
   "module": "Mumal HR",
   "name": "Not allowed to Create/Update Job Offer against 'Closed' Job Opening",
   "reference_doctype": "Job Offer",
@@ -34,7 +32,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -43,7 +40,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Submit",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.417816",
+  "modified": "2024-08-05 13:20:06.092133",
   "module": "Mumal HR",
   "name": "Auto update job opening status as 'Closed' based on the hired vacancy",
   "reference_doctype": "Job Offer",
@@ -51,7 +48,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -60,7 +56,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Cancel",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.499882",
+  "modified": "2024-08-05 13:20:06.080454",
   "module": "Mumal HR",
   "name": "Update Hired vacancy in Job Opening when job offer is cancelled",
   "reference_doctype": "Job Offer",
@@ -68,7 +64,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -77,7 +72,7 @@
   "doctype": "Server Script",
   "doctype_event": "Before Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.670251",
+  "modified": "2024-08-05 13:20:05.997661",
   "module": "Mumal HR",
   "name": "Not allowed to Create/Update interview against 'Closed' Job Opening",
   "reference_doctype": "Interview",
@@ -85,7 +80,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -94,7 +88,7 @@
   "doctype": "Server Script",
   "doctype_event": "Before Submit",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.657320",
+  "modified": "2024-08-05 13:20:06.007154",
   "module": "Mumal HR",
   "name": "set applicant status based on job offer",
   "reference_doctype": "Job Offer",
@@ -102,7 +96,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -111,7 +104,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.644301",
+  "modified": "2024-08-05 13:20:06.015433",
   "module": "Mumal HR",
   "name": "Update Job applicant status When interview is saved",
   "reference_doctype": "Interview",
@@ -119,7 +112,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -128,7 +120,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Submit",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.631185",
+  "modified": "2024-08-05 13:20:06.024189",
   "module": "Mumal HR",
   "name": "Update Job applicant status When interview is submitted",
   "reference_doctype": "Interview",
@@ -136,7 +128,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -145,7 +136,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Cancel",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.598503",
+  "modified": "2024-08-05 13:20:06.044156",
   "module": "Mumal HR",
   "name": "Change job applicant status when interview is cancelled",
   "reference_doctype": "Interview",
@@ -153,7 +144,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -162,7 +152,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Delete",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.616293",
+  "modified": "2024-08-05 13:20:06.033225",
   "module": "Mumal HR",
   "name": "Change Job Applicant status when interview is deleted",
   "reference_doctype": "Interview",
@@ -170,7 +160,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -179,7 +168,7 @@
   "doctype": "Server Script",
   "doctype_event": "Before Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.583553",
+  "modified": "2024-08-05 13:20:06.054484",
   "module": "Mumal HR",
   "name": "Do not allow to create job offer against closed - job opening",
   "reference_doctype": "Job Offer",
@@ -187,7 +176,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -196,7 +184,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Submit",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.539574",
+  "modified": "2024-08-05 13:20:06.071278",
   "module": "Mumal HR",
   "name": "Job Applicant status update on job offer",
   "reference_doctype": "Job Offer",
@@ -204,7 +192,6 @@
   "script_type": "DocType Event"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "allow_guest": 0,
   "api_method": null,
   "cron_format": null,
@@ -213,7 +200,7 @@
   "doctype": "Server Script",
   "doctype_event": "After Save",
   "event_frequency": "All",
-  "modified": "2024-07-19 17:56:53.561041",
+  "modified": "2024-08-05 13:20:06.063184",
   "module": "Mumal HR",
   "name": "Update job applicant status when job offer is saved",
   "reference_doctype": "Job Offer",

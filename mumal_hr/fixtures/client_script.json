@@ -1,74 +1,101 @@
 [
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Interview Feedback",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.507609",
+  "modified": "2024-08-05 13:19:45.403989",
   "module": "Mumal HR",
   "name": "Autoset skill in interview feedback",
   "script": "frappe.ui.form.on('Interview Feedback', {\n    onload(frm) {\n        if (frm.is_new()) {\n            var competencies = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var characteristics = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n\n            var existing_competencies = frm.doc.custom_ratings.map(function(row) {\n                return row.competency;\n            });\n\n            for (var i = 0; i < competencies.length; i++) {\n                if (!existing_competencies.includes(competencies[i])) {\n                    var row = frm.add_child(\"custom_ratings\");\n                    row.competency = competencies[i];\n                    if (i < characteristics.length) {\n                        row.personal_characteristics = characteristics[i];\n                    }\n                }\n            }\n            frm.refresh_field(\"custom_ratings\");\n        }\n    }\n});\n",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Job Opening",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.364265",
+  "modified": "2024-08-05 13:19:45.481654",
   "module": "Mumal HR",
   "name": "Set job title based on staffing plan",
   "script": "frappe.ui.form.on('Job Opening', {\n\tdesignation:function(frm) {\n\t\tvar plan = frm.doc.staffing_plan;\n\t\tvar desi = frm.doc.designation;\n\t\tvar req = frm.doc.job_requisition;\n\t\tif (desi){\n\t\t    frm.set_value('job_title',desi);\n    \t\tfrm.refresh_field('job_title');\n\t\t}\n\t\tif (plan){\n    \t\tvar title = plan+\"-\"+desi;\n    \t\tfrm.set_value('__newname',title);\n    \t\tfrm.refresh_field('__newname');\n\t\t} else if(req) {\n\t\t    var title = req+\"-\"+desi;\n    \t\tfrm.set_value('__newname',title);\n    \t\tfrm.refresh_field('__newname');\n\t\t}\n\t}\n})      ",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Employee",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.325396",
+  "modified": "2024-08-05 13:19:45.389687",
   "module": "Mumal HR",
   "name": "Set Probation Date in Employee Master",
   "script": "frappe.ui.form.on('Employee', {\n    probation_period: function(frm) {\n        var doj = frm.doc.date_of_joining;\n        var probation_period = frm.doc.probation_period;\n\n        if (doj && probation_period) {\n            var training_probation_days = probation_period * 60;\n            var end_date = frappe.datetime.add_days(doj, training_probation_days);\n            var formatted_date = frappe.datetime.str_to_user(end_date);\n\n            frm.set_value('probation_period_end_date', formatted_date);\n            frm.refresh_field('probation_period_end_date');\n        }\n    },\n    date_of_joining: function(frm) {\n        var doj = frm.doc.date_of_joining;\n        var probation_period = frm.doc.probation_period;\n\n        if (doj && probation_period) {\n            var training_probation_days = probation_period * 60;\n            var end_date = frappe.datetime.add_days(doj, training_probation_days);\n            var formatted_date = frappe.datetime.str_to_user(end_date); \n\n            frm.set_value('probation_period_end_date', formatted_date);\n            frm.refresh_field('probation_period_end_date');\n        }\n    }\n});\n",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Job Applicant",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.408826",
+  "modified": "2024-08-05 13:19:45.466280",
   "module": "Mumal HR",
   "name": "Filter interview status based on interview round in job applicant",
   "script": "frappe.ui.form.on('Job Applicant', {\n\tonload:function(frm) {\n\t\tvar interview_round = frm.doc.custom_interview_round;\n\t\tvar interview_status = frm.doc.custom_interview_status;\n\t\t\n\t\tvar interview_round_list = ['HR Round', 'Department Round', 'Management Round', 'General Round'];\n\t\tvar job_offer_list = ['Job Offer'];\n\t\t\n\t\t\n\t\tif (interview_round_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Pending', 'Under Review', 'Cleared', 'Rejected', 'Not Appeared']);\n\t\t}\n\t\telse if (job_offer_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Awaiting Response', 'Accpeted', 'Rejected']);\n\t\t}\n\t\t\n\t},\n\t\n\tcustom_interview_round:function(frm) {\n\t\tvar interview_round = frm.doc.custom_interview_round;\n\t\tvar interview_status = frm.doc.custom_interview_status;\n\t\t\n\t\tvar interview_round_list = ['HR Round', 'Department Round', 'Management Round', 'General Round'];\n\t\tvar job_offer_list = ['Job Offer'];\n\t\t\n\t\t\n\t\tif (interview_round_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Pending', 'Under Review', 'Cleared', 'Rejected', 'Not Appeared']);\n\t\t}\n\t\telse if (job_offer_list.includes(interview_round))\n\t\t{\n\t\t    frm.set_df_property('custom_interview_status', 'options', ['Awaiting Response', 'Accpeted', 'Rejected']);\n\t\t}\n\t\t\n\t}\n});",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Staffing Plan",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.443171",
+  "modified": "2024-08-05 13:19:45.450694",
   "module": "Mumal HR",
   "name": "Update the staffing plan hired vacancy",
   "script": "frappe.ui.form.on('Staffing Plan', {\n    refresh:function(frm) {\n        \n        var name = frm.doc.name; \n\n        \n        frm.doc.staffing_details.forEach(detail => {\n            var designation = detail.designation;\n            var child_name = detail.name;\n            console.log(name);\n            console.log(designation);\n            \n            frappe.db.get_list('Job Opening', {\n                fields: ['custom_hired_vacancy'],\n                filters: {\n                    designation: designation,\n                    staffing_plan: name\n                },\n            }).then(result => {\n                if (result.length > 0) {\n                    var customHiredVacancy = result[0].custom_hired_vacancy;\n                    console.log(customHiredVacancy);\n                    \n                    frappe.db.set_value('Staffing Plan Detail', child_name, 'custom_hired_vacancy', customHiredVacancy);\n                    frm.refresh_field('custom_hired_vacancy');\n                    \n                }\n            });\n        });\n    }\n});\n",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Interview Feedback",
   "enabled": 1,
-  "modified": "2024-07-19 17:56:28.474181",
+  "modified": "2024-08-05 13:19:45.418286",
   "module": "Mumal HR",
   "name": "Update date formate in interview feedback",
   "script": "frappe.ui.form.on('Interview Feedback', {\n\tinterview:function(frm) {\n\t\tvar date = frm.doc.interview;\n\t\t\n\t\tvar formatted_date = frappe.datetime.str_to_user(date);\n\t\tconsole.log(formatted_date)\n\t\t\n\t\tfrm.set_value('custom_date_of_interview', formatted_date);\n\t\tfrm.refresh_field('custom_date_of_interview');\n\t\t\n\t}\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Employee",
+  "enabled": 1,
+  "modified": "2024-08-05 13:19:45.376660",
+  "module": "Mumal HR",
+  "name": "Set Employee value in employee number",
+  "script": "frappe.ui.form.on('Employee', {\n\temployee:function(frm) {\n\t\tvar emp = frm.doc.employee;\n\t\t\n\t\tfrm.set_value('employee_number', emp);\n\t\tfrm.refresh_field('employee_number');\n\t},\n\tbefore_save:function(frm){\n\t    var emp = frm.doc.employee;\n\t    var emp_number = frm.doc.employee_number;\n\t    \n\t    if (emp_number==null){\n\t        frm.set_value('employee_number', emp);\n\t\t    frm.refresh_field('employee_number');\n\t    }\n\t}\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Employee",
+  "enabled": 1,
+  "modified": "2024-08-05 13:19:45.292159",
+  "module": "Mumal HR",
+  "name": "Merge Address in Employee Master",
+  "script": "frappe.ui.form.on('Employee', {\n\tafter_save:function(frm) {\n\t\t\n\t\tvar custom_res_no = frm.doc.custom_res_no || '';\n\t\tvar custom_res_name = frm.doc.custom_res_name || '';\n\t\tvar custom_road_street = frm.doc.custom_road_street || '';\n\t\tvar custom_locality_area = frm.doc.custom_locality_area || '';\n\t\tvar custom_city = frm.doc.custom_city || '';\n\t\tvar custom_state = frm.doc.custom_state || '';\n\t\tvar custom_country = frm.doc.custom_country || '';\n\t\t\n\t\tvar current_address_parts = [\n            custom_res_no,\n            custom_res_name,\n            custom_road_street,\n            custom_locality_area,\n            custom_city,\n            custom_state,\n            custom_country\n        ];\n\t\t\n\t\t\n\t\tvar current_address = current_address_parts.filter(part => part.trim() !== '').join(' ');\n\t\t\n\t\tif (current_address) {\n            frm.set_value('current_address', current_address + '.');\n            frm.save();\n        }\n\t\t\n\t   // if (custom_res_no!=null || custom_res_name!=null|| custom_road_street!=null || custom_locality_area!=null || custom_city!=null || custom_state!=null || custom_country!=null)\n\t   // {\n\t   //     var present_address = custom_res_no + ' ' + custom_res_name + ' ' + custom_road_street + ' ' + custom_locality_area + ' ' + custom_city + ' ' + custom_state + ' ' + custom_country + '.';\n\t\t  //  console.log(present_address)\n    // \t\tfrm.set_value('current_address',present_address);\n    // \t\tfrm.save();\n\t   // }\n\t    \n\n\t\t\n\t    var custom_is_current_address = frm.doc.custom_is_current_address || '';\n\t    var custom_res_no_p = frm.doc.custom_res_no_p || '';\n\t    var custom_res_name_p = frm.doc.custom_res_name_p || '';\n\t    var custom_road_street_p = frm.doc.custom_road_street_p || '';\n\t    var custom_locality_area_p = frm.doc.custom_locality_area_p || '';\n\t    var custom_city_p = frm.doc.custom_city_p || '';\n\t    var custom_state_p = frm.doc.custom_state_p || '';\n\t    var custom_country_p = frm.doc.custom_country_p || '';\n\t    \n\t    var permanent_address_parts = [\n            custom_res_no_p,\n            custom_res_name_p,\n            custom_road_street_p,\n            custom_locality_area_p,\n            custom_city_p,\n            custom_state_p,\n            custom_country_p\n        ];\n        \n        var permanent_address = current_address_parts.filter(part => part.trim() !== '').join(' ');\n        \n\t    if (permanent_address) {\n            frm.set_value('permanent_address', permanent_address + '.');\n            frm.save();\n        }\n\t    \n\t   \n\t}\n});",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Employee",
+  "enabled": 1,
+  "modified": "2024-08-05 13:19:45.361798",
+  "module": "Mumal HR",
+  "name": "Set current address in employee master",
+  "script": "frappe.ui.form.on('Employee', {\n\tcustom_is_current_address:function(frm) {\n        var custom_is_current_address = frm.doc.custom_is_current_address;\n        console.log(custom_is_current_address);\n        \n        if(custom_is_current_address == 1){\n            var res_no = cur_frm.doc.custom_res_no;\n            var res_name = cur_frm.doc.custom_res_name;\n            var road_street = cur_frm.doc.custom_road_street;\n            var locality_area = cur_frm.doc.custom_locality_area;\n            var city = cur_frm.doc.custom_city;\n            var state = cur_frm.doc.custom_state;\n            var country = cur_frm.doc.custom_country;\n            frm.set_value('custom_res_no_p', res_no);\n            frm.set_value('custom_res_name_p', res_name);\n            frm.set_value('custom_road_street_p', road_street);\n            frm.set_value('custom_locality_area_p', locality_area);\n            frm.set_value('custom_city_p', city);\n            frm.set_value('custom_state_p', state);\n            frm.set_value('custom_country_p', country);\n            \n        } else {\n            frm.set_value('custom_res_no_p', '');\n            frm.set_value('custom_res_name_p', '');\n            frm.set_value('custom_road_street_p', '');\n            frm.set_value('custom_locality_area_p', '');\n            frm.set_value('custom_city_p', '');\n            frm.set_value('custom_state_p', '');\n            frm.set_value('custom_country_p', '');\n        }\n        \n\t}\n})",
   "view": "Form"
  }
 ]

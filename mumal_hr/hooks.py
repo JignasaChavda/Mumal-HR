@@ -28,7 +28,15 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+# hooks.py in your ERPNext app
+doctype_js = {
+    "Employee": "public/js/employee.js",
+    "Training Feedback": "public/js/training_feedback.js"
+}
+
+
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {"Employee" : "public/js/employee_list.js"}
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -152,7 +160,8 @@ override_doctype_class = {
 scheduler_events = {
     "cron": {
         "0 0 * * *": [
-            "mumal_hr.api.birthday_reminder" #Every day 12:00 Midnight in Run
+            "mumal_hr.api.birthday_reminder", #Every day 12:00 Midnight in Run
+            "mumal_hr.api.work_anniversary_reminder", #Every day 12:00 Midnight in Run
         ]
     }
 }

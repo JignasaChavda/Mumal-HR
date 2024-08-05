@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2024-08-05 11:45:18.814012",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "department",
+  "company",
+  "column_break_9b32t",
+  "date",
+  "section_break_9mb7c",
+  "training_performance",
+  "urgency_scale",
+  "training_need_identification_by",
+  "employee_name",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Naming Series",
+   "options": "HR-TNI-"
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_9b32t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date"
+  },
+  {
+   "fieldname": "section_break_9mb7c",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "training_performance",
+   "fieldtype": "Table",
+   "label": "Training Performance",
+   "options": "Details of Training Performance",
+   "reqd": 1
+  },
+  {
+   "default": "1. Need attention but sometime later (6 to 12 months)\n2. Need attention in the future (3 to 6 months)\n3. Need attention in the near future (1 to 3 months)\n4. Need immediate attention (within one month)",
+   "fieldname": "urgency_scale",
+   "fieldtype": "Small Text",
+   "label": "Urgency Scale"
+  },
+  {
+   "fieldname": "training_need_identification_by",
+   "fieldtype": "Link",
+   "label": "Training Need Identification By",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Training Need Identification",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fetch_from": "training_need_identification_by.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-08-05 13:14:34.565397",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Training Need Identification",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

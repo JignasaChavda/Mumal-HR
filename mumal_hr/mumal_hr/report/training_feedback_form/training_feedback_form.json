@@ -1,0 +1,33 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-07-26 15:55:54.591237",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "VARDHMAN MINING PVT LTD",
+ "modified": "2024-07-26 15:56:23.804297",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Training Feedback Form",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Training Feedback",
+ "report_name": "Training Feedback Form",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "HR Manager"
+  },
+  {
+   "role": "Employee"
+  },
+  {
+   "role": "Employee Self Service"
+  }
+ ]
+}

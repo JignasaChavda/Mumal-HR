@@ -1,0 +1,53 @@
+{
+ "_comments": "[]",
+ "_liked_by": "[]",
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-07-24 12:30:01.024220",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "question_english",
+  "question_hindi",
+  "column_break_4ygij",
+  "answer"
+ ],
+ "fields": [
+  {
+   "fieldname": "question_english",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Question (English)"
+  },
+  {
+   "fieldname": "question_hindi",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Question (Hindi)"
+  },
+  {
+   "fieldname": "column_break_4ygij",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "answer",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Answer (Rating)",
+   "precision": "1"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-07-24 15:10:13.266835",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Training Feedback Answers",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
