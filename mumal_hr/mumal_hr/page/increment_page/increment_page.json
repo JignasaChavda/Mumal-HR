@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2024-06-28 11:14:58.916361",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2024-06-28 11:14:58.916361",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "increment-page",
+ "owner": "Administrator",
+ "page_name": "increment-page",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Increment Page"
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="neft_details.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="form-content" style="text-align: center; margin-top: 20px;">
+
+        <h3 id="header_company_name" style="font-weight: bold;"></h3>
+        <p id="header_company_address" style="font-weight: normal !important; margin: -8px 200px 25px; line-height: 1.4rem; font-size:14px; font-weight: bold;"></p>
+        <div class="container-date">
+            <p>Bank Name </p>
+            <p id="current_date"></p>
+        </div>
+        <p style="text-align: start; margin:20px 0px 25px;"><b>To,</b></br/>THE  BRANCH MANAGER,</p>
+        <p style="text-align: start;"><b>SUB: </b>PAYMENT OF SALARY TO THE STAFF AND LABOUR FOR THE MONTH OF {{ from_date }}</p>
+        <p style="text-align: start;"><u><b>REF: </b>OUR CURRENT ACCOUNT NO. ------------</u></p>
+        <br/>&nbsp;
+        <table border="1" width="100%" style="table-layout: fixed; margin: auto; border-collapse: collapse;">
+            <thead>
+                <tr>
+                    <th style="padding: 4px; width:5%">S.N.</th>
+                    <th style="padding: 4px; width:25%">NAME OF EMPLOYEES</th>
+                    <th style="padding: 4px; width:20%">ACCOUNT NUMBER</th>
+                    <th style="padding: 4px; width:20%">AMOUNT(`)</th>
+                    <th style="padding: 4px; width:30%">SALARY AMOUNT ( IN WORDS )</th>
+                </tr>
+            </thead>
+            <tbody id="attendance_table_body">
+                <!-- Attendance rows will be inserted here dynamically -->
+            </tbody>
+            <tfoot id="total_row">
+                <!-- Total row will be inserted here dynamically -->
+            </tfoot>
+        </table>
+        <br/>&nbsp;
+        <!-- <p style="text-align: start;">WE ARE ENCLOSING HEREWITH CHEQUE NO._________ DATED-___________ FOR Rs.295766.00  (Rs. TWO LAKH NINETY FIVE THOUSAND SEVEN HUNDRED SIXTY SIX Only) TOWARDS ABOVE PAYMENT OF SALARY TO THE ABOVE MENTIONED EMPLOYEES.</p> -->
+        <p id="cheque_amount_paragraph" style="text-align: start;"></p>
+        <p style="text-align: start;">KINDLY CREDIT THE AMOUNT AS MENTIONED AGAINST EACH EMPLOYEE TO THEIR RESPECTIVE ACCOUNT.</p><br/>
+        <p style="text-align: start;">THANKING YOU,<br/>YOURS FAITHFULLY</p>
+        <p id="footer_company_info" style="font-weight: bold; text-align: start;"></p><br/>
+        <p style="text-align: start; margin-top: 100px;">(AUTHORISED SIGNATORY)<br/>ENCLOSE : AS  ABOVE</p>
+
+
+    </div>
+
+</body>
+</html>
+
+

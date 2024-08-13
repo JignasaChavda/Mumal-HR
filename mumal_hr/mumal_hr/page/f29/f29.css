@@ -1,0 +1,17 @@
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+
+.head-4
+{
+    margin-top: -10px;
+    font-weight: normal;
+}
+
+@media print {
+    h2{
+        margin-top: 20px !important; 
+    }
+}

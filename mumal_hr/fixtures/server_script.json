@@ -206,5 +206,39 @@
   "reference_doctype": "Job Offer",
   "script": "if doc.status=='Awaiting Response':\n    offer_status = f\"{doc.doctype} - {doc.status}\"\n    frappe.db.set_value('Job Applicant', doc.job_applicant, 'status', offer_status)\n    frappe.db.set_value('Job Applicant', doc.job_applicant, 'custom_interview_round', doc.doctype)\n    frappe.db.set_value('Job Applicant', doc.job_applicant, 'custom_interview_status', doc.status)",
   "script_type": "DocType Event"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "Before Save",
+  "event_frequency": "All",
+  "modified": "2024-08-13 11:22:15.459482",
+  "module": "Mumal HR",
+  "name": "Relieving date validation on Exit Questionnaire",
+  "reference_doctype": "Exit Questionnaire",
+  "script": "emp = doc.employee\nemp_nm = doc.employee_name\n\nrelieving_date = frappe.db.get_value('Employee', emp, 'relieving_date')\n\nif emp and not relieving_date:\n    frappe.throw(f\"Please set relieving date in Employee: {emp} - {emp_nm}\")",
+  "script_type": "DocType Event"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "allow_guest": 0,
+  "api_method": null,
+  "cron_format": null,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Server Script",
+  "doctype_event": "After Save",
+  "event_frequency": "All",
+  "modified": "2024-08-13 11:41:43.984430",
+  "module": "Mumal HR",
+  "name": "Update exit questionnaire id in exit interview",
+  "reference_doctype": "Exit Questionnaire",
+  "script": "exit_interview = frappe.db.get_value('Exit Interview', {'employee': doc.employee}, 'name')\n\nif exit_interview:\n    frappe.db.set_value('Exit Interview', exit_interview, 'reference_document_name', doc.name)",
+  "script_type": "DocType Event"
  }
 ]

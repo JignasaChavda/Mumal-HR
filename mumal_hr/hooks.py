@@ -31,7 +31,12 @@ app_license = "MIT"
 # hooks.py in your ERPNext app
 doctype_js = {
     "Employee": "public/js/employee.js",
-    "Training Feedback": "public/js/training_feedback.js"
+    "Training Feedback": "public/js/training_feedback.js",
+    "Exit Interview": "public/js/exit_interview.js",
+    "Job Opening": "public/js/job_opening.js",
+    "Job Applicant": "public/js/job_applicant.js",
+    "Interview": "public/js/interview.js",
+    "Interview Feedback": "public/js/interview_feedback.js",
 }
 
 

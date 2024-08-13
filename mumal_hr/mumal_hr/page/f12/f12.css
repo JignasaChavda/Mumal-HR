@@ -1,0 +1,75 @@
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+
+.head-4
+{
+    margin-top: -10px;
+    font-weight: normal;
+}
+
+table{
+    width: 100% !important;
+    margin-top: 20px !important;
+}
+table, th, td {
+    border: 1px solid black;
+    padding: 3px 8px !important;
+}
+th {
+    text-align: left;
+}
+
+.text-center{
+    text-align: center;
+}
+.text-left{
+    text-align: start;
+}
+
+.headinfo {
+    text-align: start;
+}
+.headvalue{
+    padding-left: 10px !important;
+}
+.firsthalf{
+    width: 8.5%;
+}
+.secondhalf{
+    width: 6.6%;
+}
+
+.blank{
+    height: 28px;
+}
+
+@media print {
+    h2{
+        margin-top: 20px !important; 
+    }
+}
+
+.flex-container {
+    display: flex;
+    margin-top: 35px;
+    font-size: 14px;
+}
+
+.flex-containersecond {
+    display: flex;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.first{
+    width: 75%;
+    text-align: left;
+}
+
+.second{
+    width: 25%;
+    text-align: left;
+}

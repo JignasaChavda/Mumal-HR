@@ -351,3 +351,183 @@ def validate_training_feedback(employee, training_event):
         # Record exists
         return True
     return False
+
+@frappe.whitelist()
+def send_schedule_interview(scheduled_on=None,doc= None):
+    print(scheduled_on)
+
+    # You can perform additional logic here if needed
+
+    # Return the values to be used in the client-side script
+    return {
+        "scheduled_on": scheduled_on,
+        "doc":doc
+    }
+
+@frappe.whitelist()
+def send_interview_email(applicant, schedule_date, from_time, to_time, location):
+    # Get job applicant details
+    applicant_doc = frappe.get_doc('Job Applicant', applicant)
+    candidate_name = applicant_doc.applicant_name
+    position_name = applicant_doc.designation
+    company_name = applicant_doc.custom_company
+    recipient_email = applicant_doc.email_id
+
+    # Format the schedule_date
+    schedule_date_formatted = datetime.strptime(schedule_date, '%Y-%m-%d').strftime('%d-%m-%Y')
+
+    # Format times to AM/PM
+    from_time_formatted = datetime.strptime(from_time, '%H:%M:%S').strftime('%I:%M %p')
+    to_time_formatted = datetime.strptime(to_time, '%H:%M:%S').strftime('%I:%M %p')
+
+    # Prepare email content with black text color
+    subject = f"Interview Scheduled - {position_name} at {company_name}"
+    
+    # Conditional email message
+    message = f"""
+        <div style="color: black;">
+            <b>Subject:</b> Interview Scheduled - {position_name} at {company_name}<br><br>
+            <b>Dear {candidate_name},</b><br><br>
+            We are pleased to inform you that your interview for the {position_name} role has been scheduled.<br><br>
+            <b>Date:</b> {schedule_date_formatted}<br>
+            <b>Time:</b> {from_time_formatted} To {to_time_formatted}<br>
+    """
+    
+    if location:
+        message += f"<b>Location:</b> {location}<br><br>"
+    
+    message += """
+            Please confirm your availability by replying to this email.<br><br>
+            We look forward to meeting you!
+        </div>
+    """
+
+    # Send email using sendmail
+    frappe.sendmail(
+        recipients=[recipient_email],
+        subject=subject,
+        message=message,
+        now=True
+    )
+
+    return "Email sent successfully"
+
+@frappe.whitelist()
+def send_interview_email(applicant, schedule_date, from_time, to_time, location=None):
+    # Get job applicant details
+    applicant_doc = frappe.get_doc('Job Applicant', applicant)
+    candidate_name = applicant_doc.applicant_name
+    position_name = applicant_doc.designation
+    company_name = applicant_doc.custom_company
+    recipient_email = applicant_doc.email_id
+
+    # Format the schedule_date
+    schedule_date_formatted = datetime.strptime(schedule_date, '%Y-%m-%d').strftime('%e %B %Y')
+    from_time_formatted = datetime.strptime(from_time, '%H:%M:%S').strftime('%I:%M %p')
+    to_time_formatted = datetime.strptime(to_time, '%H:%M:%S').strftime('%I:%M %p')
+
+    # Prepare email content with conditional location line
+    location_line = ""
+    if location:
+        location_line = f"<b>Location:</b> {location}<br><br>"
+    else:
+        location_line = f"<br>"
+    subject = f"Interview Scheduled - {position_name} at {company_name}"
+    message = f"""
+        <div style="color: black; font-family: Arial, sans-serif; font-size: 14px;">
+            Dear {candidate_name},<br><br>
+            We are pleased to inform you that your interview for the {position_name} role has been scheduled.<br><br>
+            <b>Date:</b> {schedule_date_formatted}<br>
+            <b>Time:</b> {from_time_formatted} To {to_time_formatted}<br>
+            {location_line}
+            Please confirm your availability by replying to this email.<br><br>
+            We look forward to meeting you!
+        </div>
+    """
+
+    # Send email using sendmail
+    frappe.sendmail(
+        recipients=[recipient_email],
+        subject=subject,
+        message=message,
+        now=True
+    )
+
+    return "Email sent successfully"
+
+@frappe.whitelist()
+def send_reschedule_interview_email(applicant, schedule_date, from_time, to_time, location=None):
+    # Get job applicant details
+    applicant_doc = frappe.get_doc('Job Applicant', applicant)
+    candidate_name = applicant_doc.applicant_name
+    position_name = applicant_doc.designation
+    company_name = applicant_doc.custom_company
+    recipient_email = applicant_doc.email_id
+
+    # Format the schedule_date
+    schedule_date_formatted = datetime.strptime(schedule_date, '%Y-%m-%d').strftime('%e %B %Y')
+    from_time_formatted = datetime.strptime(from_time, '%H:%M:%S').strftime('%I:%M %p')
+    to_time_formatted = datetime.strptime(to_time, '%H:%M:%S').strftime('%I:%M %p')
+
+    # Prepare email content with conditional location line
+    location_line = ""
+    if location:
+        location_line = f"<b>Location:</b> {location}<br><br>"
+    else:
+        location_line = f"<br>"
+
+    subject = f"Interview Rescheduled - {position_name} at {company_name}"
+    message = f"""
+        <div style="color: black; font-family: Arial, sans-serif; font-size: 14px;">
+            Dear {candidate_name},<br><br>
+            We are pleased to inform you that your interview for the {position_name} role has been rescheduled.<br><br>
+            <b>Date:</b> {schedule_date_formatted}<br>
+            <b>Time:</b> {from_time_formatted} To {to_time_formatted}<br>
+            {location_line}
+            Please confirm your availability by replying to this email.<br><br>
+            We look forward to meeting you!
+        </div>
+    """
+
+    # Send email using sendmail
+    frappe.sendmail(
+        recipients=[recipient_email],
+        subject=subject,
+        message=message,
+        now=True
+    )
+
+    return "Email sent successfully"
+
+@frappe.whitelist()
+def send_interview_clear_email(applicant, schedule_date):
+    # Get job applicant details
+    applicant_doc = frappe.get_doc('Job Applicant', applicant)
+    candidate_name = applicant_doc.applicant_name
+    position_name = applicant_doc.designation
+    company_name = applicant_doc.custom_company
+    recipient_email = applicant_doc.email_id
+
+    # Format the schedule_date
+    clear_date_formatted = datetime.strptime(schedule_date, '%Y-%m-%d').strftime('%e %B %Y')
+
+    subject = f"Interview Result - {position_name} at {company_name}"
+    message = f"""
+        <div style="color: black; font-family: Arial, sans-serif; font-size: 14px;">
+            Dear {candidate_name},<br><br>
+            We are delighted to inform you that you have successfully cleared the interview for the position of {position_name} held on {clear_date_formatted} at {company_name}.<br><br>
+            We will be in touch with the next steps shortly.<br><br>
+            Congratulations once again!<br><br>
+        </div>
+    """
+
+    # Send email using sendmail
+    frappe.sendmail(
+        recipients=[recipient_email],
+        subject=subject,
+        message=message,
+        now=True
+    )
+
+    return "Email sent successfully"
+

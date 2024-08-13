@@ -1,0 +1,33 @@
+@media print {
+    @page {
+        margin: 0; 
+    }
+
+    body {
+        font-size: 18px !important;  
+    }
+
+    .form-content {
+        padding-top: 0px !important;   
+    }
+    h3{
+        font-size: 28px !important;
+    }
+}
+body {
+    font-size: 13px ;     
+}
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+    padding-top: 25px !important;   
+}
+h3{
+    font-size: 24px;
+}.container-date {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 0px;
+    padding-left: 0px;
+}

@@ -5,9 +5,11 @@ frappe.ui.form.on('Employee Gratuity', {
     onload: function(frm) {
         // Initialize a flag to track if the message has been shown
         frm.messageShown = false;
-        frm.previousEmployee = null; // Track the previous employee
-    },
+        frm.previousEmployee = null; 
 
+        frm.set_value('salary_component', 'Gratuity'); // Set the salary component
+    },
+    
     employee: function(frm) {
         if (frm.doc.employee) {
             // Check if the employee has changed
@@ -67,12 +69,12 @@ frappe.ui.form.on('Employee Gratuity', {
                         var formattedDateOfJoining = formatDate(a);
                         var formattedDateOfLeaving = formatDate(b);
 
-                        console.log(formattedDateOfJoining, formattedDateOfLeaving); // Log the formatted dates to the console
+                        // console.log(formattedDateOfJoining, formattedDateOfLeaving); // Log the formatted dates to the console
 
                         // Calculate the year difference
                         var yearDifference = calculateYearDifference(a, b);
 
-                        console.log(`Total years of experience: ${yearDifference}`); // Log the year difference
+                        // console.log(`Total years of experience: ${yearDifference}`); // Log the year difference
 
                         // Set the total_years_of_experience field with the year difference
                         frm.set_value('total_years_of_experience', yearDifference);
@@ -86,7 +88,7 @@ frappe.ui.form.on('Employee Gratuity', {
         }		
     },
     validate: function(frm) {
-        console.log('Validation Check');
+        // console.log('Validation Check');
 
         // Fetch the relieving_date from the Employee doctype and perform validation
         if (frm.doc.employee) {
@@ -183,30 +185,115 @@ frappe.ui.form.on('Employee Gratuity', {
                             // Check if the payrollDate matches both startDate and endDate
                             if (payrollDate.month === start.month && payrollDate.year === start.year) {
                                 // Update the most recent matching slip
-                                mostRecentMatchingSlip = {
-                                    slip_id: slip.name, // Include the Salary Slip ID
-                                    payrollDate: `${payrollDate.month}-${payrollDate.year}`,
-                                    start_date: `${start.month}-${start.year}`,
-                                    end_date: `${end.month}-${end.year}`
-                                };
+                                mostRecentMatchingSlip = slip.name; // Only store slip ID for now
                             }
                         }
                     });
         
-                    // Log the most recent matching slip, if found
+                    // If a matching slip was found, fetch its details
                     if (mostRecentMatchingSlip) {
-                        console.log('Yes, match found for:', mostRecentMatchingSlip);
+                        // console.log('Most recent matching slip ID:', mostRecentMatchingSlip);
+                    
+                        // Fetch the salary slip document to get earnings details
+                        frappe.db.get_doc('Salary Slip', mostRecentMatchingSlip).then((salarySlip) => {
+                            // Initialize variables to keep track of the Basic amount and Salary Component
+                            let basicAmount = 0;
+                            let salaryComponent = '';
+                            const earnings = salarySlip.earnings || [];
+                    
+                            // Iterate through the earnings child table
+                            earnings.forEach((earn) => {
+                                if (earn.salary_component === 'Basic') {
+                                    basicAmount = earn.amount;
+                                }
+                            });
+                    
+                            // Get the total_years_of_experience value from the form
+                            const totalYearsOfExperience = frm.doc.total_years_of_experience || 0;
+                    
+                            // Calculate the amount based on the given formula
+                            const calculatedAmount = (basicAmount / 26) * 15 * totalYearsOfExperience;
+                    
+                            // Set the last_salary_slip, basic, salary_component, and calculated_amount fields in the current form
+                            frm.set_value('last_salary_slip', mostRecentMatchingSlip);
+                            frm.set_value('basic', basicAmount);
+                            frm.set_value('amount', calculatedAmount); // Set the calculated amount
+                            frm.refresh_fields(['last_salary_slip', 'basic', 'salary_component', 'calculated_amount']); // Refresh the fields to ensure they are updated on the UI
+                    
+                        }).catch((error) => {
+                            // console.error('Error fetching salary slip details:', error);
+                        });
                     } else {
-                        console.log('Payroll date does not match any salary slip start date.');
+                        // console.log('Payroll date does not match any salary slip start date.');
+                        frm.set_value('last_salary_slip', '');
+                        frm.set_value('basic', '');                        
+                        frm.set_value('amount', ''); 
+                        frm.set_value('pay_via_salary_slip',0);
+                        let msg = frappe.msgprint({
+                            title: 'Notice',
+                            indicator: 'red',
+                            message: 'Selected payroll date and employee according not any data found.'
+                        });
+                        setTimeout(() => {
+                            msg.hide();
+                        }, 1500);
+                        frm.messageShown = true;
                     }
+                    
+                    
                 } else {
-                    console.log('No salary slips found for the selected employee.');
+                    // console.log('No salary slips found for the selected employee.');
                 }
             }).catch((error) => {
-                console.error('Error fetching salary slips:', error);
+                // console.error('Error fetching salary slips:', error);
             });
         }
-        
-        
+    },
+    after_save: function(frm) {
+        if (frm.doc.last_salary_slip) {
+            frappe.db.get_doc('Salary Slip', frm.doc.last_salary_slip).then((salarySlip) => {
+                // Check if the status is "Draft"
+                if (salarySlip.docstatus === 0) {
+                    if (frm.doc.pay_via_salary_slip == 1) {
+                        // Check if the earnings child table already contains the same salary_component
+                        let exists = salarySlip.earnings.some(earning => earning.salary_component === frm.doc.salary_component);
+    
+                        if (!exists) {
+                            // Add a row to the earnings child table if it doesn't exist
+                            const newEarning = {
+                                salary_component: frm.doc.salary_component,
+                                amount: frm.doc.amount
+                            };
+                            salarySlip.earnings.push(newEarning);
+                        } else {
+                            // console.log('Earning with the same salary component already exists.');
+                        }
+                    } else {
+                        // Remove rows with matching salary_component if the checkbox is unchecked
+                        salarySlip.earnings = salarySlip.earnings.filter(earning => 
+                            earning.salary_component !== frm.doc.salary_component
+                        );
+                    }
+    
+                    // Save the modified salary slip
+                    frappe.call({
+                        method: 'frappe.client.save',
+                        args: {
+                            doc: salarySlip
+                        },
+                        callback: function(response) {
+                            if (!response.exc) {
+                                frm.refresh_field('pay_via_salary_slip');
+                                // console.log('Salary slip updated.');
+                            }
+                        }
+                    });
+                } else {
+                    // console.log('Salary slip is not in draft status.');
+                }
+            }).catch((error) => {
+                // console.error('Error fetching salary slip:', error);
+            });
+        }
     }
 });

@@ -1,0 +1,983 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:HR-EQ-{employee}",
+ "creation": "2024-08-07 17:24:02.909786",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "column_break_aelnf",
+  "department",
+  "designation",
+  "section_break_14ksp",
+  "q1",
+  "section_break_ltta8",
+  "q1_c1",
+  "q1_c2",
+  "q1_c3",
+  "q1_c4",
+  "q1_c5",
+  "column_break_v7ybe",
+  "q1_c6",
+  "q1_c7",
+  "q1_c8",
+  "q1_c9",
+  "section_break_oumds",
+  "q1_a",
+  "section_break_qqzqq",
+  "q1_a_c1",
+  "column_break_eezkz",
+  "q1_a_c2",
+  "column_break_dhxn6",
+  "q1_a_c3",
+  "section_break_lcykz",
+  "q2",
+  "section_break_1sod5",
+  "q2_o1",
+  "q2_o2",
+  "q2_o3",
+  "q2_o4",
+  "q2_o5",
+  "q2_o6",
+  "column_break_i8phl",
+  "q2_1_c1",
+  "q2_1_c2",
+  "q2_1_c3",
+  "q2_1_c4",
+  "q2_1_c5",
+  "q2_1_c6",
+  "column_break_lhgi2",
+  "q2_2_c1",
+  "q2_2_c2",
+  "q2_2_c3",
+  "q2_2_c4",
+  "q2_2_c5",
+  "q2_2_c6",
+  "column_break_kr8qs",
+  "q2_3_c1",
+  "q2_3_c2",
+  "q2_3_c3",
+  "q2_3_c4",
+  "q2_3_c5",
+  "q2_3_c6",
+  "column_break_z1dan",
+  "q2_4_c1",
+  "q2_4_c2",
+  "q2_4_c3",
+  "q2_4_c4",
+  "q2_4_c5",
+  "q2_4_c6",
+  "column_break_qa6go",
+  "q2_5_c1",
+  "q2_5_c2",
+  "q2_5_c3",
+  "q2_5_c4",
+  "q2_5_c5",
+  "q2_5_c6",
+  "section_break_twfur",
+  "q3",
+  "section_break_0rlfu",
+  "q3_1",
+  "q3_1_c1",
+  "q3_1_c2",
+  "q3_1_c3",
+  "column_break_vbjnd",
+  "q3_2",
+  "q3_2_c1",
+  "q3_2_c2",
+  "q3_2_c3",
+  "q3_2_c4",
+  "q3_2_c5",
+  "q3_2_c6",
+  "q3_2_c7",
+  "column_break_82ajf",
+  "q3_3",
+  "q3_3_c1",
+  "q3_3_c2",
+  "q3_3_c3",
+  "q3_3_c4",
+  "q3_3_c5",
+  "q3_3_c6",
+  "section_break_sr94k",
+  "q4",
+  "section_break_a9fd9",
+  "q4_c1",
+  "q4_c2",
+  "q4_c3",
+  "q4_c4",
+  "column_break_1bzfu",
+  "q4_c5",
+  "section_break_ehf4m",
+  "q5",
+  "section_break_rbci9",
+  "q5_c1",
+  "q5_c3",
+  "column_break_7hl4w",
+  "q5_c2",
+  "section_break_k1hjj",
+  "q6",
+  "q6_c1",
+  "section_break_nxoqf",
+  "q7",
+  "section_break_moxlm",
+  "q7_c1",
+  "column_break_wciyr",
+  "q7_c2",
+  "section_break_0qpup",
+  "q8",
+  "section_break_6qles",
+  "q8_o1",
+  "q8_o2",
+  "q8_o3",
+  "column_break_v9hux",
+  "q8_o4",
+  "q8_o5",
+  "q8_o6",
+  "section_break_gpcej",
+  "q8_s1",
+  "q8_s2",
+  "q8_s3",
+  "column_break_lpojh",
+  "q8_s4",
+  "q8_s5",
+  "section_break_ogw3e",
+  "q9",
+  "section_break_3xogg",
+  "q9_s1",
+  "column_break_evmzc",
+  "q9_s2",
+  "amended_from",
+  "section_break_hpvye",
+  "q10",
+  "q10_s1",
+  "section_break_lkxo6",
+  "q11",
+  "q11_s1"
+ ],
+ "fields": [
+  {
+   "default": "0",
+   "fieldname": "q1_c1",
+   "fieldtype": "Check",
+   "label": "Near to Native Place"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c2",
+   "fieldtype": "Check",
+   "label": "Better Organization"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c3",
+   "fieldtype": "Check",
+   "label": "Better Learning Opportunities"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c4",
+   "fieldtype": "Check",
+   "label": "Better Culture"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c5",
+   "fieldtype": "Check",
+   "label": "Better Job Profile"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c6",
+   "fieldtype": "Check",
+   "label": "Better Package/Salary"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c7",
+   "fieldtype": "Check",
+   "label": "Upward Designation"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_c8",
+   "fieldtype": "Check",
+   "label": "Attitude of Colleagues/Boss"
+  },
+  {
+   "fieldname": "q1_c9",
+   "fieldtype": "Long Text",
+   "label": "Any Other",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "column_break_v7ybe",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ltta8",
+   "fieldtype": "Section Break",
+   "hide_border": 1
+  },
+  {
+   "fieldname": "q1_a",
+   "fieldtype": "Heading",
+   "label": "<h5>a. Were all your expectations fulfilled?</h5>"
+  },
+  {
+   "fieldname": "section_break_qqzqq",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_a_c1",
+   "fieldtype": "Check",
+   "label": "All"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_a_c2",
+   "fieldtype": "Check",
+   "label": "Partially"
+  },
+  {
+   "default": "0",
+   "fieldname": "q1_a_c3",
+   "fieldtype": "Check",
+   "label": "Not at All"
+  },
+  {
+   "fieldname": "section_break_oumds",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_eezkz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dhxn6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_lcykz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q2",
+   "fieldtype": "Heading",
+   "label": "<h5><b>2) Please rate your satisfaction level on following: (1 Being Low &amp; 5 Being High)</b></h5>"
+  },
+  {
+   "fieldname": "section_break_1sod5",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q2_o1",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 2px;\">A. Job Profile</p>"
+  },
+  {
+   "fieldname": "q2_o2",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 6px;\">B. Working Enviorment</p>"
+  },
+  {
+   "fieldname": "q2_o3",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 7px;\">C. Behaviour of Seniors</p>"
+  },
+  {
+   "fieldname": "q2_o4",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 6px;\">D. Compensation</p>"
+  },
+  {
+   "fieldname": "q2_o5",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 6px;\">E. Learning Development</p>"
+  },
+  {
+   "fieldname": "q2_o6",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px; padding-top: 6px;\">F. Policies &amp; Practices</p>"
+  },
+  {
+   "fieldname": "column_break_i8phl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_lhgi2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_kr8qs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_z1dan",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_qa6go",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_twfur",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c1",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c2",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c3",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c4",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c5",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c1",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c2",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c3",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c4",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c5",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c1",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c2",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c3",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c4",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c5",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c1",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c2",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c3",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c4",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c5",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c1",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c2",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c3",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c4",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c5",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_1_c6",
+   "fieldtype": "Check",
+   "label": "1"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_2_c6",
+   "fieldtype": "Check",
+   "label": "2"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_3_c6",
+   "fieldtype": "Check",
+   "label": "3"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_4_c6",
+   "fieldtype": "Check",
+   "label": "4"
+  },
+  {
+   "default": "0",
+   "fieldname": "q2_5_c6",
+   "fieldtype": "Check",
+   "label": "5"
+  },
+  {
+   "fieldname": "q3",
+   "fieldtype": "Heading",
+   "label": "<h5><b>3) Section-9: Reason for Leaving (Please tick and elaborate wherever applicable)</b></h5>"
+  },
+  {
+   "fieldname": "section_break_0rlfu",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q3_1",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px;\">A. Economic Reasons</p>"
+  },
+  {
+   "fieldname": "column_break_vbjnd",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "q3_2",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px;\">B. Organization/Job Related Reasons</p>"
+  },
+  {
+   "fieldname": "column_break_82ajf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "q3_3",
+   "fieldtype": "Heading",
+   "label": "<p style=\"font-size: 13px;\">C. Personal Reasons</p>"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_1_c1",
+   "fieldtype": "Check",
+   "label": "Better Compensation"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_1_c2",
+   "fieldtype": "Check",
+   "label": "Benefits/Incentives"
+  },
+  {
+   "fieldname": "q3_1_c3",
+   "fieldtype": "Long Text",
+   "label": "Any Other",
+   "max_height": "50px"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c1",
+   "fieldtype": "Check",
+   "label": "Job Satisfaction"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c2",
+   "fieldtype": "Check",
+   "label": "Better Career Opportunities Elsewhere"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c3",
+   "fieldtype": "Check",
+   "label": "Lackof Growth Opportunities"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c4",
+   "fieldtype": "Check",
+   "label": "Job Fit"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c5",
+   "fieldtype": "Check",
+   "label": "Issues with Supervisor or Colleagues"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_2_c6",
+   "fieldtype": "Check",
+   "label": "Performance Rating"
+  },
+  {
+   "fieldname": "q3_2_c7",
+   "fieldtype": "Long Text",
+   "label": "Any Other",
+   "max_height": "50px"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_3_c1",
+   "fieldtype": "Check",
+   "label": "Health Problems"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_3_c2",
+   "fieldtype": "Check",
+   "label": "Location"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_3_c3",
+   "fieldtype": "Check",
+   "label": "Further Studies"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_3_c4",
+   "fieldtype": "Check",
+   "label": "Family Circumstances"
+  },
+  {
+   "default": "0",
+   "fieldname": "q3_3_c5",
+   "fieldtype": "Check",
+   "label": "Timings"
+  },
+  {
+   "fieldname": "q3_3_c6",
+   "fieldtype": "Long Text",
+   "label": "Any Other",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "section_break_sr94k",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q4",
+   "fieldtype": "Heading",
+   "label": "<h5><b>4) What is most appealing in the new positions? (Please tick mark)</b></h5>"
+  },
+  {
+   "fieldname": "section_break_a9fd9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q4_c1",
+   "fieldtype": "Check",
+   "label": "Near to Native Place"
+  },
+  {
+   "default": "0",
+   "fieldname": "q4_c2",
+   "fieldtype": "Check",
+   "label": "High Rise in Salary"
+  },
+  {
+   "fieldname": "column_break_1bzfu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q4_c3",
+   "fieldtype": "Check",
+   "label": "Higher Designation"
+  },
+  {
+   "default": "0",
+   "fieldname": "q4_c4",
+   "fieldtype": "Check",
+   "label": "Job Profile"
+  },
+  {
+   "fieldname": "q4_c5",
+   "fieldtype": "Long Text",
+   "label": "Any Other",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "section_break_ehf4m",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q5",
+   "fieldtype": "Heading",
+   "label": "<h5><b>5) Does any Policy or Practice made your job difficult?</b></h5>"
+  },
+  {
+   "fieldname": "section_break_rbci9",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q5_c1",
+   "fieldtype": "Check",
+   "label": "Yes"
+  },
+  {
+   "fieldname": "q5_c3",
+   "fieldtype": "Long Text",
+   "label": "If yes, Please specify: (You can also suggest, As how that particular Policy/Practice can be improved)",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "column_break_7hl4w",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "q5_c2",
+   "fieldtype": "Check",
+   "label": "No"
+  },
+  {
+   "fieldname": "q6",
+   "fieldtype": "Heading",
+   "label": "<h5><b>6) What new things have you learned during your stay with us?</b></h5>"
+  },
+  {
+   "fieldname": "q6_c1",
+   "fieldtype": "Long Text",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "section_break_k1hjj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "section_break_nxoqf",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q7",
+   "fieldtype": "Heading",
+   "label": "<h5><b>7) Would you like to work with us again incase an opportunity is available in future? (Please tick in appropriate box)</b></h5>"
+  },
+  {
+   "default": "0",
+   "fieldname": "q7_c1",
+   "fieldtype": "Check",
+   "label": "Yes"
+  },
+  {
+   "default": "0",
+   "fieldname": "q7_c2",
+   "fieldtype": "Check",
+   "label": "No"
+  },
+  {
+   "fieldname": "section_break_moxlm",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_wciyr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_0qpup",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q8",
+   "fieldtype": "Heading",
+   "label": "<h5><b>8) Would you like to share with us details about your new assignment?</b></h5>"
+  },
+  {
+   "fieldname": "section_break_6qles",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q8_o1",
+   "fieldtype": "Data",
+   "label": "Name of New Company"
+  },
+  {
+   "fieldname": "q8_o2",
+   "fieldtype": "Data",
+   "label": "New Department"
+  },
+  {
+   "fieldname": "q8_o3",
+   "fieldtype": "Data",
+   "label": "Location (City)"
+  },
+  {
+   "fieldname": "column_break_v9hux",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "q8_o4",
+   "fieldtype": "Data",
+   "label": "New Designation"
+  },
+  {
+   "fieldname": "q8_o5",
+   "fieldtype": "Data",
+   "label": "New Salary"
+  },
+  {
+   "fieldname": "q8_o6",
+   "fieldtype": "Data",
+   "label": "State"
+  },
+  {
+   "fieldname": "section_break_gpcej",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q8_s1",
+   "fieldtype": "Select",
+   "label": "Does your new role offer a better salary?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "q8_s2",
+   "fieldtype": "Select",
+   "label": "Does your new role offer greater responsibility?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "q8_s3",
+   "fieldtype": "Select",
+   "label": "Does your new employer offer more flexible working hours?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "q8_s4",
+   "fieldtype": "Select",
+   "label": "Is your new role in a more convenient location?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "q8_s5",
+   "fieldtype": "Select",
+   "label": "Does your new role offer more interesting work?",
+   "options": "\nYes\nNo"
+  },
+  {
+   "fieldname": "column_break_lpojh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_ogw3e",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q9",
+   "fieldtype": "Heading",
+   "label": "<h5><b>9) Which Aspects of your Job were you: </b></h5>"
+  },
+  {
+   "fieldname": "section_break_3xogg",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q9_s1",
+   "fieldtype": "Long Text",
+   "label": "Most Satisfied With:",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "column_break_evmzc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "q9_s2",
+   "fieldtype": "Long Text",
+   "label": "Least Satisfied With:",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Exit Questionnaire",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_hpvye",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q10",
+   "fieldtype": "Heading",
+   "label": "<h5><b>10) In what way has the organization does not met your expectations?</b></h5>"
+  },
+  {
+   "fieldname": "q10_s1",
+   "fieldtype": "Long Text",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "section_break_lkxo6",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "q11",
+   "fieldtype": "Heading",
+   "label": "<h5><b>11) What are your suggestions for overall improvement? </b></h5>"
+  },
+  {
+   "fieldname": "q11_s1",
+   "fieldtype": "Long Text",
+   "max_height": "50px"
+  },
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fieldname": "column_break_aelnf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "section_break_14ksp",
+   "fieldtype": "Section Break",
+   "label": "Questionnaire"
+  },
+  {
+   "fieldname": "q1",
+   "fieldtype": "Heading",
+   "label": "<h5><b>1) What were your expectations at the time of joining?</b></h5>"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-08-13 11:34:00.246162",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Exit Questionnaire",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

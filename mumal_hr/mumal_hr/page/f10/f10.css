@@ -1,0 +1,58 @@
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+
+/* Styles for the form title */
+.form-title {
+    margin-top: -10px;
+    font-weight: normal;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+th, td {
+    max-width: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/* Styles for the date range */
+.date-range {
+    font-weight: normal;
+}
+
+/* Styles for the attendance table */
+.attendance-table {
+    width: 100%;
+    font-size: 14px;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+/* Styles for table header */
+.attendance-table th {
+    padding: 4px;
+    width: 12%;
+}
+@media print {
+    @page {
+        margin: 0; 
+    }
+
+    body {
+        width: 100vw; /* Set body width to viewport width */
+        overflow-x: hidden; /* Hide horizontal overflow */
+    }
+    h2{
+        margin-top: 55px;        
+    }
+    /* Remove form content padding and border radius */
+    .form-content {
+        background-color: white;
+        padding: 0;
+        border-radius: 0;
+    }
+}

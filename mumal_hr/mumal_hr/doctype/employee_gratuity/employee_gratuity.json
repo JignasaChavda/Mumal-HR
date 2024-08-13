@@ -1,4 +1,5 @@
 {
+ "_comments": "[]",
  "_liked_by": "[\"Administrator\"]",
  "actions": [],
  "allow_rename": 1,
@@ -21,14 +22,14 @@
   "date_of_leaving",
   "total_years_of_experience",
   "gratuity_tab",
-  "standard_payment_days",
   "payroll_date",
   "last_salary_slip",
   "column_break_rfmhg",
   "basic",
   "salary_component",
   "amount",
-  "pay_via_salary_slip"
+  "pay_via_salary_slip",
+  "amended_from"
  ],
  "fields": [
   {
@@ -151,16 +152,20 @@
    "label": "Pay via Salary Slip"
   },
   {
-   "fetch_from": "employee.custom_standard_payment_days",
-   "fieldname": "standard_payment_days",
-   "fieldtype": "Int",
-   "label": "Standard Payment Days"
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Gratuity",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-05 11:21:37.710136",
+ "modified": "2024-08-05 15:22:07.310005",
  "modified_by": "Administrator",
  "module": "Mumal HR",
  "name": "Employee Gratuity",

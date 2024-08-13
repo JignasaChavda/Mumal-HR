@@ -1,0 +1,39 @@
+<div class="form-content" style="text-align: center; margin-top: 20px;">
+    <h2>FORM NO. 29</h2>
+    <h4 class="head-4">(Prescribed under Rule-109)</h4>
+    <h4><b>Register of Accidents and Dangerous Occurrences</b></h4>
+    <table border="1" style="font-size: 14px; margin: auto; border-collapse: collapse;">
+        <thead>
+            <tr>
+                <th style="padding: 8px;">Name of injured person (if any)</th>
+                <th style="padding: 8px;">Date of accident or dangerous occurrence</th>
+                <th style="padding: 8px;">Date of report (in Form no. 20) to Inspector</th>
+                <th style="padding: 8px;">Nature of accident or dangerous occurrence</th>
+                <th style="padding: 8px;">Date of return of injured person to work</th>
+                <th style="padding: 8px;">Number of days injured person was absent from work</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="number">
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+            </tr>
+            {% for employee in employees %}
+            <tr>
+                <td style="padding: 8px;">{{ employee.employee_name }}</td>
+                <!-- Assuming these fields are available in the employee record -->
+                <td style="padding: 8px;">{{ employee.date_of_accident }}</td>
+                <td style="padding: 8px;">{{ employee.date_of_report }}</td>
+                <td style="padding: 8px;">{{ employee.nature_of_accident }}</td>
+                <td style="padding: 8px;">{{ employee.date_of_return }}</td>
+                <td style="padding: 8px;">{{ employee.days_absent }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+

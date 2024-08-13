@@ -1,0 +1,210 @@
+//Horizontally page set
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+.form-title {
+    margin-top: -10px;
+    font-weight: normal;
+}
+.container {
+    max-width: 1870px !important;
+}
+.date-range {
+    font-weight: normal;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+th, td {
+    max-width: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1.2px;
+}
+.attendance-table {
+    width: 100%;
+    font-size: 14px;
+    margin: auto;
+    border-collapse: collapse;
+}
+.attendance-table th {
+    padding: 4px;
+    width: 12%;
+}
+.surgoninfo{
+    font-weight: bold;
+    text-align: start;
+    font-size: 15px;
+    padding-top:10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3% 50% 20% 30%;
+    text-align: start;
+    padding-bottom: 20px;
+  }
+.grid-item{
+    line-height: 30px;
+}
+
+@media print {
+        /* Rotate the entire body */
+        /* body {
+            transform: rotate(-90deg);
+        }*/
+        /* h2{
+        margin-top: 200px;        
+    } 
+    body{
+        transform: rotate(-90deg);
+    } */
+    @page {
+        margin: 30px 0px !important; 
+    } 
+    @page :first {
+        margin: 0;
+    }
+
+    body {
+        width: 100vw; 
+        overflow-x: hidden; 
+    }
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+    
+    th, td {
+        max-width: 100px;
+        word-wrap: break-word;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    h2{
+        margin-top: 55px;        
+    }
+    
+    .form-content {
+        background-color: white;
+        padding: 0;
+        border-radius: 0;
+    }
+}
+
+
+/* 
+//Vertically set page
+.form-content {
+    background-color: white;
+    padding: 20px 15px;
+    border-radius: 8px;
+}
+.form-title {
+    margin-top: -10px;
+    font-weight: normal;
+}
+.container {
+    max-width: 1870px !important;
+}
+.date-range {
+    font-weight: normal;
+}
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+th, td {
+    max-width: 100px;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1.2px;
+}
+.attendance-table {
+    width: 100%;
+    font-size: 14px;
+    margin: auto;
+    border-collapse: collapse;
+}
+.attendance-table th {
+    padding: 4px;
+    width: 12%;
+}
+.surgoninfo{
+    font-weight: bold;
+    text-align: start;
+    font-size: 15px;
+    padding-top:10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 3% 50% 20% 30%;
+    text-align: start;
+    padding-bottom: 20px;
+  }
+.grid-item{
+    line-height: 30px;
+}
+
+@media print {
+    body {
+        transform: rotate(-90deg);
+        width: 98vh;
+        overflow-x: hidden; 
+        position: absolute;
+        left: 0; 
+        top: 0;
+        margin: 0;
+        padding: 0;
+    }
+    h2{
+        margin-top: 50px !important;
+    }
+
+    @page {
+        margin: 0;
+    }
+
+    @page :first {
+        margin: 0;
+    }
+
+    table {
+        width: auto !important; 
+        table-layout: auto; 
+        margin: 0; 
+        padding: 0; 
+        border-collapse: collapse;
+    }
+
+    th, td {
+        word-wrap: break-word; 
+        overflow: visible; 
+        padding: 4px; 
+        font-size: 14px !important;
+    }
+
+    .form-content {
+        background-color: white;
+        padding: 0;
+        border-radius: 0;
+    }
+
+    tr {
+        page-break-inside: avoid;
+    }
+
+    tr.page-break {
+        page-break-after: always;
+    }
+}
+ */
