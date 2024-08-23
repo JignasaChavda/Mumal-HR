@@ -4,10 +4,10 @@
   "doctype": "Client Script",
   "dt": "Interview Feedback",
   "enabled": 1,
-  "modified": "2024-08-05 13:19:45.403989",
+  "modified": "2024-08-14 10:45:27.608371",
   "module": "Mumal HR",
   "name": "Autoset skill in interview feedback",
-  "script": "frappe.ui.form.on('Interview Feedback', {\n    onload(frm) {\n        if (frm.is_new()) {\n            var competencies = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var characteristics = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n\n            var existing_competencies = frm.doc.custom_ratings.map(function(row) {\n                return row.competency;\n            });\n\n            for (var i = 0; i < competencies.length; i++) {\n                if (!existing_competencies.includes(competencies[i])) {\n                    var row = frm.add_child(\"custom_ratings\");\n                    row.competency = competencies[i];\n                    if (i < characteristics.length) {\n                        row.personal_characteristics = characteristics[i];\n                    }\n                }\n            }\n            frm.refresh_field(\"custom_ratings\");\n        }\n    }\n});\n",
+  "script": "frappe.ui.form.on('Interview Feedback', {\n    onload: function(frm) {\n        if (frm.is_new()) {\n            var competencies = [\n                \"Functional / Subject Knowledge\",\n                \"Vision & Strategy\",\n                \"Business Acumen\",\n                \"Teamwork & Collaboration\",\n                \"Develop Self & Team\",\n                \"Administrative/Managerial quality\",\n                \"Customer Focus\",\n                \"Innovates & Improves\",\n                \"Get Results\",\n                \"Communicate to Influence & Engage\",\n                \"Safety & Environment awareness\"\n            ];\n            var characteristics = [\n                \"Drive to Achieve\",\n                \"Learning Agility\",\n                \"Intellectual Capability\",\n                \"Managing Ambiguity\",\n                \"Emotional Maturity\"\n            ];\n\n            // Ensure the child table is initialized\n            if (!frm.doc.custom_ratings) {\n                frm.doc.custom_ratings = [];\n            }\n\n            var existing_competencies = frm.doc.custom_ratings.map(function(row) {\n                return row.competency;\n            });\n\n            for (var i = 0; i < competencies.length; i++) {\n                if (!existing_competencies.includes(competencies[i])) {\n                    var row = frm.add_child(\"custom_ratings\");\n                    row.competency = competencies[i];\n                    if (i < characteristics.length) {\n                        row.personal_characteristics = characteristics[i];\n                    }\n                }\n            }\n            frm.refresh_field(\"custom_ratings\");\n        }\n    }\n});\n",
   "view": "Form"
  },
  {
@@ -119,6 +119,18 @@
   "module": "Mumal HR",
   "name": "Relieving Date validation in Exit Questionnaire",
   "script": "frappe.ui.form.on('Exit Questionnaire', {\n    employee: function(frm) {\n        var emp = frm.doc.employee;\n        var emp_nm = frm.doc.employee_name;\n        \n        if (emp) {\n            frappe.db.get_value('Employee', emp, 'relieving_date').then(function(res) {\n                var relieving_date = res.message.relieving_date;\n                \n                if (!relieving_date) {\n                    var message = __(\"Please set relieving date in Employee: {0} - {1}\", [emp, emp_nm]);\n                    frappe.throw(message);\n                }\n            });\n        }\n    }\n});\n",
+  "view": "Form"
+ },
+ {
+  "_liked_by": "[\"Administrator\"]",
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Job Requisition",
+  "enabled": 1,
+  "modified": "2024-08-14 11:08:39.647975",
+  "module": "Mumal HR",
+  "name": "Set default designation in authorities child table",
+  "script": "frappe.ui.form.on('Job Requisition', {\n    refresh: function(frm) {\n        if (frm.is_new()) {\n            frappe.call({\n                method: \"frappe.client.get_list\",\n                args: {\n                    doctype: \"Designation\",\n                    fields: [\"name\"],\n                    filters: {\n                        name: [\"in\", ['HR Manager', 'Head of Department', 'Managing Director']]\n                    }\n                },\n                callback: function(response) {\n                    if (response.message) {\n                       \n                        var orderedDesignations = ['HR Manager', 'Head of Department', 'Managing Director'];\n\n                      \n                        for (var i = 0; i < orderedDesignations.length; i++) {\n                            var designationName = orderedDesignations[i];\n\n                          \n                            if (response.message.find(row => row.name === designationName)) {\n                                var row = frm.add_child(\"custom_authoroties_comments\");\n                                row.designation = designationName;\n                            }\n                        }\n                        frm.refresh_field(\"custom_authoroties_comments\");\n                    }\n                }\n            });\n        }\n    }\n});\n",
   "view": "Form"
  }
 ]
