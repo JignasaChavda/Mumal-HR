@@ -1,0 +1,38 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-03 15:42:59.404781",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "average_score",
+  "performance_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "performance_remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Performance Remarks"
+  },
+  {
+   "fieldname": "average_score",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Average Score"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-03 15:54:21.614192",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Appraisal Criteria",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

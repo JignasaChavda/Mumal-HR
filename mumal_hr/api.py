@@ -2,6 +2,181 @@ import frappe
 from frappe.utils import nowdate
 from datetime import datetime
 
+from frappe.utils.data import add_to_date
+
+
+
+@frappe.whitelist(allow_guest=True)
+def mark_attendance(date, shift):
+    if isinstance(date, str):
+        date = datetime.strptime(date, '%Y-%m-%d').date()
+
+    success_message_printed = False
+    
+    emp_records = frappe.db.get_all("Employee",
+                                    filters={
+                                        "status": 'Active'
+                                    },
+                                    fields=["employee"],
+                                    )
+    
+    employee_checkins = {}
+
+    for emp in emp_records:
+        emp_name = emp.employee
+
+        checkin_records = frappe.db.get_all(
+            "Employee Checkin",
+            filters={
+                "employee": emp_name,
+                "shift": shift,
+                "custom_date": date
+            },
+            fields=["employee", "name", "custom_date", "log_type"],
+            order_by="custom_date"
+        )
+        
+        if checkin_records:
+            for checkin in checkin_records:
+                date_key = checkin['custom_date']
+                if emp_name not in employee_checkins:
+                    employee_checkins[emp_name] = {}
+                if date_key not in employee_checkins[emp_name]:
+                    employee_checkins[emp_name][date_key] = []
+                employee_checkins[emp_name][date_key].append({
+                    'name': checkin['name'],
+                    'log_type': checkin['log_type']
+                })
+        else:
+            
+            holiday_list = frappe.db.get_value('Employee', emp_name, 'holiday_list')
+            is_holiday = False
+            
+            if holiday_list:
+                holiday_doc = frappe.get_doc('Holiday List', holiday_list)
+                holidays = holiday_doc.get("holidays")
+                
+                for holiday in holidays:
+                    holiday_dt = holiday.holiday_date
+                    if date == holiday_dt:
+                        is_holiday = True
+                        break
+            
+            if not is_holiday:
+                exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': date, 'docstatus': 1}, ['name'])
+                if not exists_atte:
+                    attendance = frappe.new_doc("Attendance")
+                    attendance.employee = emp_name
+                    attendance.attendance_date = date
+                    attendance.shift = shift
+                    attendance.status = "Absent"
+                    attendance.custom_remarks = "No Checkin found"
+                    attendance.insert(ignore_permissions=True)
+                    attendance.submit()
+                    frappe.db.commit()
+
+    # Extract and print values from employee_checkins dictionary
+    for emp_name, dates in employee_checkins.items():
+        for checkin_date, logs in dates.items():
+            first_chkin = None
+            last_chkout = None
+
+            for log in logs:
+                name = log['name']
+                log_type = log['log_type']
+
+                if log_type == "IN" and first_chkin is None:
+                    first_chkin = name
+
+                if log_type == "OUT":
+                    last_chkout = name
+            
+            # Print using frappe.msgprint
+            # frappe.msgprint(f"Employee: {emp_name}, Date: {checkin_date}, First Check-in: {first_chkin}, Last Checkout: {last_chkout}")
+            
+            if first_chkin and last_chkout:
+                exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': checkin_date, 'docstatus': 1}, ['name'])
+                if not exists_atte:
+                    
+                    chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
+                    chkout_datetime = frappe.db.get_value('Employee Checkin', last_chkout, 'time')
+
+                    chkin_time = frappe.utils.get_time(chkin_datetime)
+                    chkout_time = frappe.utils.get_time(chkout_datetime)
+
+                    attendance = frappe.new_doc("Attendance")
+                    attendance.employee = emp_name
+                    attendance.attendance_date = checkin_date
+                    attendance.shift = shift
+                    attendance.in_time = chkin_datetime
+                    attendance.out_time = chkout_datetime
+                    attendance.check_in_time = chkin_time
+                    attendance.check_out_time = chkout_time
+                    attendance.custom_employee_checkin = first_chkin
+                    attendance.custom_employee_checkout = last_chkout
+                    attendance.status = "Present"
+
+                    attendance.insert(ignore_permissions=True)
+                    attendance.submit()
+                    frappe.db.commit()
+
+                    if not success_message_printed:
+                        frappe.msgprint("Attendance is Marked Successfully")
+                        success_message_printed = True
+                else:
+                    
+                    formatted_date = checkin_date.strftime("%d-%m-%Y")
+                    attendance_link = frappe.utils.get_link_to_form("Attendance", exists_atte)
+                    frappe.msgprint(f"Attendance already marked for Employee:{emp_name} for date {formatted_date}: {attendance_link}")
+
+            elif first_chkin and not last_chkout:
+                exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': checkin_date, 'docstatus': 1}, ['name'])
+                if not exists_atte:
+                    chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
+                    chkin_time = frappe.utils.get_time(chkin_datetime)
+
+                    attendance = frappe.new_doc("Attendance")
+                    attendance.employee = emp_name
+                    attendance.attendance_date = checkin_date
+                    attendance.shift = shift
+                    attendance.in_time = chkin_datetime
+                    attendance.check_in_time = chkin_time
+                    attendance.custom_employee_checkin = first_chkin
+                    attendance.status = "Half Day"
+                    attendance.custom_remarks = "No OutPunch"
+
+                    attendance.insert(ignore_permissions=True)
+                    attendance.submit()
+                    frappe.db.commit()
+
+                    if not success_message_printed:
+                        frappe.msgprint("Attendance is Marked Successfully")
+                        success_message_printed = True
+                else:
+                    formatted_date = checkin_date.strftime("%d-%m-%Y")
+                    attendance_link = frappe.utils.get_link_to_form("Attendance", exists_atte)
+                    
+                    frappe.msgprint(f"Attendance already marked for Employee:{emp_name} for date {formatted_date}: {attendance_link}")
+
+  
+
+@frappe.whitelist(allow_guest=True)
+def set_attendance_date():
+    
+    yesterday_date = add_to_date(datetime.now(), days=-1)
+    date = yesterday_date.strftime('%Y-%m-%d')
+    
+    shift_types = frappe.get_all("Shift Type", filters={'enable_auto_attendance':1},fields=['name'])
+    if shift_types:
+        for shifts in shift_types:
+            shift = shifts.name
+
+            mark_attendance(date, shift)
+
+
+
+
+
 @frappe.whitelist(allow_guest=True)
 def birthday_reminder():
     # Get today's date in yyyy-mm-dd format
@@ -530,4 +705,167 @@ def send_interview_clear_email(applicant, schedule_date):
     )
 
     return "Email sent successfully"
+
+# Employee Bonus Code
+
+@frappe.whitelist()
+def get_employee_bonus_details(employee, from_date, to_date, salary_component):
+
+    # Retrieve the custom_bonus_calculation_criteria from the Salary Component
+    sc_doc = frappe.get_doc('Salary Component', salary_component)
+
+    custom_bonus_calculation_criteria = sc_doc.custom_bonus_calculation_criteria
+    custom_bonus_percentage = sc_doc.custom_bonus_percentage
+
+    bonus_percentage = (custom_bonus_percentage / 100)
+
+    # Fetch the Salary Slips of the selected employee that fall within the date range and are submitted
+    salary_slips = frappe.get_all(
+        "Salary Slip",
+        filters={
+            "employee": employee,
+            "start_date": [">=", from_date],  # Start date should be on or after the from_date
+            "end_date": ["<=", to_date],      # End date should be on or before the to_date
+            "docstatus": 1                    # Only consider submitted Salary Slips
+        },
+        fields=["payment_days", "start_date"]
+    )
+    
+    total_payment_days = 0
+    total_bonus_calculated = 0
+    
+    # Calculate total payment days and bonus for each slip
+    for slip in salary_slips:
+        payment_days = slip.get("payment_days", 0)
+        start_date = slip.get("start_date")
+        
+        # Calculate the total days in the month of the slip's start date
+        total_days_in_month = frappe.utils.get_last_day(start_date).day
+        
+        # Calculate the bonus for this salary slip using the custom criteria
+        bonus_for_slip = (custom_bonus_calculation_criteria / total_days_in_month) * payment_days
+        
+        total_payment_days += payment_days
+        total_bonus_calculated += bonus_for_slip
+    
+    # Perform the additional calculation (8.33% of the total_bonus_calculated)
+    calculated_bonus_amount = total_bonus_calculated * bonus_percentage
+    
+    # Return the values, total payment days, and the calculated bonus
+    return {
+        'employee': employee,
+        'from_date': from_date,
+        'to_date': to_date,
+        'total_payment_days': total_payment_days,
+        'bonus_calculated_on': total_bonus_calculated,
+        'calculated_bonus_amount': calculated_bonus_amount
+    }
+
+# Auto Create Salary Structure Assignment Based On Employee Increment
+
+import frappe
+from frappe.utils import today
+
+@frappe.whitelist()
+def create_salary_structure_assignments():
+
+    # Check if the feature is enabled in HR Settings
+    hr_settings = frappe.get_single('HR Settings')
+    if not hr_settings.custom_auto_salary_structure_assignment:
+        frappe.throw("HR Setting 'Auto Salary Structure Assignment' is disabled.")
+    
+    # Fetch all Employee Increment records where applicable_from is today
+    increments = frappe.get_all('Employee Increment',
+                                filters={'applicable_from': today(), 'docstatus': 1},
+                                fields=['name', 'employee', 'applicable_from', 'new_gross'])
+    
+    if not increments:
+        return "No Employee Increments found for today."
+    
+    # Process each increment record
+    for increment_data in increments:
+        try:
+            # Fetch the last submitted Salary Structure Assignment for the employee
+            last_assignment = frappe.get_all('Salary Structure Assignment',
+                                             filters={'employee': increment_data['employee'], 'docstatus': 1},
+                                             fields=['salary_structure'],
+                                             order_by='creation desc',
+                                             limit=1)
+            
+            if not last_assignment:
+                frappe.msgprint(f"No previous Salary Structure Assignment found for employee {increment_data['employee']}.")
+                continue
+            
+            # Use the salary_structure from the last submitted assignment
+            salary_structure = last_assignment[0].get('salary_structure')
+    
+            # Create a new Salary Structure Assignment
+            salary_structure_assignment = frappe.get_doc({
+                'doctype': 'Salary Structure Assignment',
+                'employee': increment_data['employee'],  
+                'salary_structure': salary_structure, 
+                'from_date': increment_data['applicable_from'], 
+                'base': increment_data['new_gross']
+            })
+    
+            # Insert and submit the new Salary Structure Assignment
+            salary_structure_assignment.insert()
+            salary_structure_assignment.submit()
+            frappe.db.commit()  # Commit the transaction
+
+            frappe.msgprint(f"New Salary Structure Assignment created and submitted for employee {increment_data['employee']}.")
+
+        except Exception as e:
+            frappe.log_error(message=str(e), title="Salary Structure Assignment Error")
+            frappe.msgprint(f"Error creating and submitting Salary Structure Assignment for employee {increment_data['employee']}: {str(e)}")
+
+    return "Salary Structure Assignments created and submitted successfully."
+
+
+# @frappe.whitelist()
+# def create_salary_structure_assignments():
+#     # Fetch all Employee Increment records where applicable_from is today
+#     increments = frappe.get_all('Employee Increment',
+#                                 filters={'applicable_from': today(), 'docstatus': 1},
+#                                 fields=['name','employee', 'applicable_from','new_gross'])
+    
+
+#     for increment in increments:
+#         # Create Salary Structure Assignment for each record
+#         try:
+#             auto_create_salary_structure_assignment(frappe.get_doc('Employee Increment', increment.name))
+#         except Exception as e:
+#             frappe.log_error(message=str(e), title="Salary Structure Assignment Error")
+
+# @frappe.whitelist()
+# def auto_create_salary_structure_assignment(doc, args=None):
+#     # Check if the feature is enabled in HR Settings
+#     hr_settings = frappe.get_single('HR Settings')
+#     if not hr_settings.custom_auto_salary_structure_assignment:
+#         frappe.throw("HR Setting 'Auto Salary Structure Assignment' is disabled.") 
+    
+#     # Fetch the last submitted Salary Structure Assignment for the employee
+#     last_assignment = frappe.get_all('Salary Structure Assignment',
+#                                      filters={'employee': doc.employee, 'docstatus': 1},
+#                                      fields=['salary_structure'],
+#                                      order_by='creation desc',
+#                                      limit=1)
+    
+#     if not last_assignment:
+#         frappe.throw("No previous Salary Structure Assignment found for this employee.")
+
+#     # Use the salary_structure from the last submitted assignment
+#     salary_structure = last_assignment[0].get('salary_structure')
+
+#     # Create a new Salary Structure Assignment
+#     salary_structure_assignment = frappe.get_doc({
+#         'doctype': 'Salary Structure Assignment',
+#         'employee': doc.employee,  
+#         'salary_structure': salary_structure, 
+#         'from_date': doc.applicable_from, 
+#         'base': doc.new_gross
+#     })
+
+#     salary_structure_assignment.insert()
+#     frappe.msgprint("New Salary Structure Assignment created successfully.")
 

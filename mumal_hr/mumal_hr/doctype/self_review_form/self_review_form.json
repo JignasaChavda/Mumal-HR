@@ -1,0 +1,113 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format: EMP-REV-{employee}",
+ "creation": "2024-09-04 13:40:50.341164",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "department",
+  "column_break_fsrvg",
+  "designation",
+  "date_issued_on",
+  "review_template",
+  "questionarrie_section",
+  "self_review",
+  "for_office_use_only_section",
+  "proposed_requirement_next_year"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fieldname": "date_issued_on",
+   "fieldtype": "Date",
+   "label": "Date Issued On"
+  },
+  {
+   "fieldname": "questionarrie_section",
+   "fieldtype": "Section Break",
+   "label": "Questionarrie"
+  },
+  {
+   "fieldname": "self_review",
+   "fieldtype": "Table",
+   "label": "Self Review",
+   "options": "Self Appraisal",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_fsrvg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "for_office_use_only_section",
+   "fieldtype": "Section Break",
+   "label": "For Office use only"
+  },
+  {
+   "fieldname": "proposed_requirement_next_year",
+   "fieldtype": "Small Text",
+   "label": "Proposed requirement (Next Year)"
+  },
+  {
+   "fieldname": "review_template",
+   "fieldtype": "Link",
+   "label": "Review Template",
+   "options": "Self Review Template"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-04 15:13:01.971175",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Self Review Form",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

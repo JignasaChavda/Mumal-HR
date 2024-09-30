@@ -1,0 +1,253 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:EMP-APR-{employee}-{#####}",
+ "creation": "2024-09-03 15:33:47.885963",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "department",
+  "designation",
+  "company",
+  "reporting_officer",
+  "reporting_officer_name",
+  "column_break_om3ec",
+  "status",
+  "from_date",
+  "to_date",
+  "appraisal_template",
+  "reviewer_officer",
+  "reviewer_officer_name",
+  "section_break_47tds",
+  "default_criteria",
+  "section_break_aqn1h",
+  "appraisal_ratings",
+  "total_score_section",
+  "total_max_score",
+  "hod_score",
+  "column_break_mpnsw",
+  "hr_manager_score",
+  "management_score",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fetch_from": "employee.reports_to",
+   "fieldname": "reporting_officer",
+   "fieldtype": "Link",
+   "label": "Reporting Officer",
+   "options": "Employee"
+  },
+  {
+   "fetch_from": "reporting_officer.employee_name",
+   "fieldname": "reporting_officer_name",
+   "fieldtype": "Data",
+   "label": "Reporting Officer Name"
+  },
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "reviewer_officer",
+   "fieldtype": "Link",
+   "label": "Reviewer Officer",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "column_break_om3ec",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "reviewer_officer.employee_name",
+   "fieldname": "reviewer_officer_name",
+   "fieldtype": "Data",
+   "label": "Reviewer Officer Name"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "section_break_47tds",
+   "fieldtype": "Section Break",
+   "label": "Default Criteria"
+  },
+  {
+   "fieldname": "default_criteria",
+   "fieldtype": "Table",
+   "label": "Default Criteria",
+   "options": "Appraisal Criteria"
+  },
+  {
+   "fieldname": "appraisal_ratings",
+   "fieldtype": "Table",
+   "label": "Appraisal Ratings",
+   "options": "Appraisal Ratings"
+  },
+  {
+   "fieldname": "section_break_aqn1h",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "appraisal_template",
+   "fieldtype": "Link",
+   "label": "Appraisal Template",
+   "options": "Appraisal Template"
+  },
+  {
+   "fetch_from": "employee.company",
+   "fieldname": "company",
+   "fieldtype": "Data",
+   "label": "Company"
+  },
+  {
+   "fieldname": "total_score_section",
+   "fieldtype": "Section Break",
+   "label": "Total Score"
+  },
+  {
+   "fieldname": "total_max_score",
+   "fieldtype": "Int",
+   "label": "Total Max Score"
+  },
+  {
+   "fieldname": "hod_score",
+   "fieldtype": "Int",
+   "label": "HOD Score"
+  },
+  {
+   "fieldname": "column_break_mpnsw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "hr_manager_score",
+   "fieldtype": "Int",
+   "label": "HR Manager Score"
+  },
+  {
+   "fieldname": "management_score",
+   "fieldtype": "Int",
+   "label": "Management Score"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Employee Appraisal",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "options": "Pending\nApproved by HOD\nRejected by HOD\nApproved by HR\nRejected by HR\nApproved by MD\nRejected by MD",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-05 12:41:08.861120",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Employee Appraisal",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Head of Department",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "HR Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Managing Director",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,6 +1,4 @@
 {
- "_comments": "[]",
- "_liked_by": "[\"Administrator\"]",
  "actions": [],
  "allow_rename": 1,
  "autoname": "field:employee",
@@ -28,7 +26,6 @@
   "basic",
   "salary_component",
   "amount",
-  "pay_via_salary_slip",
   "amended_from"
  ],
  "fields": [
@@ -146,12 +143,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "default": "0",
-   "fieldname": "pay_via_salary_slip",
-   "fieldtype": "Check",
-   "label": "Pay via Salary Slip"
-  },
-  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -165,7 +156,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2024-08-05 15:22:07.310005",
+ "modified": "2024-09-02 11:16:51.948699",
  "modified_by": "Administrator",
  "module": "Mumal HR",
  "name": "Employee Gratuity",

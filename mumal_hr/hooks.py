@@ -37,6 +37,8 @@ doctype_js = {
     "Job Applicant": "public/js/job_applicant.js",
     "Interview": "public/js/interview.js",
     "Interview Feedback": "public/js/interview_feedback.js",
+    "Employee Bonus":"public/js/employee_bonus.js",
+    # "Employee Increment":"public/js/employee_increment.js"
 }
 
 
@@ -126,7 +128,9 @@ doctype_list_js = {"Employee" : "public/js/employee_list.js"}
 
 override_doctype_class = {
 	"Interview": "mumal_hr.overrides.interview.Interview",
-    "Job Offer": "mumal_hr.overrides.job_offer.JobOffer"
+    "Job Offer": "mumal_hr.overrides.job_offer.CustomJobOffer",
+    "Salary Slip": "mumal_hr.overrides.salary_slip.SalarySlip",
+    "Salary Structure Assignment": "mumal_hr.overrides.salary_structure_assignment.SalaryStructureAssignment"
 }
 
 # Document Events
@@ -139,6 +143,12 @@ override_doctype_class = {
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 # 	}
+# }
+
+# doc_events = {
+#     'Employee Increment': {
+#         'on_submit': 'mumal_hr.api.auto_create_salary_structure_assignment'
+#     }
 # }
 
 # Scheduled Tasks
@@ -167,9 +177,18 @@ scheduler_events = {
         "0 0 * * *": [
             "mumal_hr.api.birthday_reminder", #Every day 12:00 Midnight in Run
             "mumal_hr.api.work_anniversary_reminder", #Every day 12:00 Midnight in Run
+            "mumal_hr.api.create_salary_structure_assignments"
+        ],
+        "0 16 * * *": [
+            "mumal_hr.api.create_salary_structure_assignments", #Every day 04:00 PM Run
+        ],
+        "50 23 * * *": [
+            "mumal_hr.api.mark_attendance"
         ]
     }
 }
+
+
 
 # Testing
 # -------
@@ -180,8 +199,7 @@ scheduler_events = {
 # ------------------------------
 #
 override_whitelisted_methods = {
-	"hrms.hr.doctype.job_applicant.job_applicant.create_interview": "mumal_hr.overrides.job_applicant.create_interview"
-}
+	"hrms.hr.doctype.job_applicant.job_applicant.create_interview": "mumal_hr.overrides.job_applicant.create_interview"}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,

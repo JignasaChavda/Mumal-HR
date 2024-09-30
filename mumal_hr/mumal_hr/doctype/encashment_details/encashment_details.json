@@ -1,0 +1,138 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-23 10:43:50.509452",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "employee_name",
+  "department",
+  "designation",
+  "payroll_category",
+  "column_break_bdjqc",
+  "monthly_salary",
+  "salary_per_day",
+  "daily_rate",
+  "present_days",
+  "carry_forward",
+  "encashment",
+  "eligible_leave",
+  "amount"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee"
+  },
+  {
+   "columns": 2,
+   "fetch_from": "employee.employee_name",
+   "fieldname": "employee_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Employee Name"
+  },
+  {
+   "fetch_from": "employee.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fetch_from": "employee.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fetch_from": "employee.custom_payroll_category",
+   "fieldname": "payroll_category",
+   "fieldtype": "Data",
+   "label": "Payroll Category"
+  },
+  {
+   "fieldname": "column_break_bdjqc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.payroll_category=='Monthly'",
+   "fetch_from": "employee.custom_gross_salary_per_month",
+   "fieldname": "monthly_salary",
+   "fieldtype": "Currency",
+   "label": "Monthly Salary",
+   "precision": "2"
+  },
+  {
+   "depends_on": "eval:doc.payroll_category=='Monthly'",
+   "fieldname": "salary_per_day",
+   "fieldtype": "Currency",
+   "label": "Salary Per Day",
+   "precision": "2"
+  },
+  {
+   "depends_on": "eval:doc.payroll_category=='Daily'",
+   "fetch_from": "employee.custom_daily_rate",
+   "fieldname": "daily_rate",
+   "fieldtype": "Currency",
+   "label": "Daily Rate",
+   "precision": "2"
+  },
+  {
+   "fieldname": "present_days",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Present Days",
+   "precision": "1"
+  },
+  {
+   "columns": 2,
+   "fieldname": "eligible_leave",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Eligible Leave",
+   "precision": "1"
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.encashment==1",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount"
+  },
+  {
+   "columns": 1,
+   "default": "1",
+   "fieldname": "carry_forward",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Carry Forward"
+  },
+  {
+   "columns": 1,
+   "default": "0",
+   "fieldname": "encashment",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Encashment"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-23 18:20:03.544323",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Encashment Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

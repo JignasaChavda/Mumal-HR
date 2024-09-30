@@ -1,0 +1,82 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-03 16:00:43.494397",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "rating_factor",
+  "review_area",
+  "column_break_ykr4t",
+  "max_score",
+  "by_hod",
+  "by_hr_manager",
+  "by_management"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "review_area",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Review Area",
+   "options": "Employee Feedback Criteria"
+  },
+  {
+   "columns": 4,
+   "fieldname": "rating_factor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Rating Factor",
+   "options": "KRA"
+  },
+  {
+   "columns": 1,
+   "fieldname": "max_score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max Score"
+  },
+  {
+   "fieldname": "column_break_ykr4t",
+   "fieldtype": "Column Break"
+  },
+  {
+   "columns": 1,
+   "fieldname": "by_hod",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "HOD",
+   "read_only_depends_on": "eval: !frappe.user.has_role('Head of Department')"
+  },
+  {
+   "columns": 1,
+   "fieldname": "by_management",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Management",
+   "read_only_depends_on": "eval: !frappe.user.has_role('Managing Director')"
+  },
+  {
+   "columns": 1,
+   "fieldname": "by_hr_manager",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "HR Manager",
+   "read_only_depends_on": "eval: !frappe.user.has_role('HR Manager')"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-04 17:54:11.915660",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Appraisal Ratings",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

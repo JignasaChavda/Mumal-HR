@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-03 16:18:26.984564",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "kra",
+  "feedback_criteria",
+  "max_score"
+ ],
+ "fields": [
+  {
+   "columns": 5,
+   "fieldname": "kra",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "KRA",
+   "options": "KRA",
+   "reqd": 1
+  },
+  {
+   "columns": 3,
+   "fieldname": "feedback_criteria",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Feedback Criteria",
+   "options": "Employee Feedback Criteria",
+   "reqd": 1
+  },
+  {
+   "columns": 2,
+   "fieldname": "max_score",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Max Score",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-03 16:58:02.990416",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "Performance Template",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

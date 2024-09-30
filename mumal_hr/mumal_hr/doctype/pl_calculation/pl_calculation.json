@@ -1,0 +1,122 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:PL-LE-{#####}",
+ "creation": "2024-09-23 10:51:27.874956",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_date",
+  "to_date",
+  "column_break_cxkps",
+  "leave_type",
+  "get_details",
+  "section_break_xhctd",
+  "next_year_start_date",
+  "column_break_wcl8l",
+  "next_year_end_date",
+  "section_break_q0xmh",
+  "encashment_details",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "From Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "To Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_cxkps",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "leave_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Leave Type",
+   "options": "Leave Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "get_details",
+   "fieldtype": "Button",
+   "label": "Get Details"
+  },
+  {
+   "fieldname": "section_break_xhctd",
+   "fieldtype": "Section Break",
+   "label": "Carry Forward To"
+  },
+  {
+   "fieldname": "encashment_details",
+   "fieldtype": "Table",
+   "label": "Encashment Details",
+   "options": "Encashment Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "PL Calculation",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "column_break_wcl8l",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "next_year_end_date",
+   "fieldtype": "Date",
+   "label": "Next Year End Date"
+  },
+  {
+   "fieldname": "section_break_q0xmh",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "next_year_start_date",
+   "fieldtype": "Date",
+   "label": "Next Year Start Date"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-25 12:29:27.082078",
+ "modified_by": "Administrator",
+ "module": "Mumal HR",
+ "name": "PL Calculation",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
