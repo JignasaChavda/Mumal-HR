@@ -47,33 +47,36 @@ def mark_attendance(date, shift):
                     'name': checkin['name'],
                     'log_type': checkin['log_type']
                 })
-        else:
-            
-            holiday_list = frappe.db.get_value('Employee', emp_name, 'holiday_list')
-            is_holiday = False
-            
-            if holiday_list:
-                holiday_doc = frappe.get_doc('Holiday List', holiday_list)
-                holidays = holiday_doc.get("holidays")
                 
-                for holiday in holidays:
-                    holiday_dt = holiday.holiday_date
-                    if date == holiday_dt:
-                        is_holiday = True
-                        break
+        # frappe.msgprint(str(employee_checkins))
+
+        # else:
             
-            if not is_holiday:
-                exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': date, 'docstatus': 1}, ['name'])
-                if not exists_atte:
-                    attendance = frappe.new_doc("Attendance")
-                    attendance.employee = emp_name
-                    attendance.attendance_date = date
-                    attendance.shift = shift
-                    attendance.status = "Absent"
-                    attendance.custom_remarks = "No Checkin found"
-                    attendance.insert(ignore_permissions=True)
-                    attendance.submit()
-                    frappe.db.commit()
+        #     holiday_list = frappe.db.get_value('Employee', emp_name, 'holiday_list')
+        #     is_holiday = False
+            
+        #     if holiday_list:
+        #         holiday_doc = frappe.get_doc('Holiday List', holiday_list)
+        #         holidays = holiday_doc.get("holidays")
+                
+        #         for holiday in holidays:
+        #             holiday_dt = holiday.holiday_date
+        #             if date == holiday_dt:
+        #                 is_holiday = True
+        #                 break
+            
+        #     if not is_holiday:
+        #         exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': date, 'docstatus': 1}, ['name'])
+        #         if not exists_atte:
+        #             attendance = frappe.new_doc("Attendance")
+        #             attendance.employee = emp_name
+        #             attendance.attendance_date = date
+        #             attendance.shift = shift
+        #             attendance.status = "Absent"
+        #             attendance.custom_remarks = "No Checkin found"
+        #             attendance.insert(ignore_permissions=True)
+        #             attendance.submit()
+        #             frappe.db.commit()
 
     # Extract and print values from employee_checkins dictionary
     for emp_name, dates in employee_checkins.items():
