@@ -183,7 +183,7 @@ scheduler_events = {
             "mumal_hr.api.create_salary_structure_assignments", #Every day 04:00 PM Run
         ],
         "50 23 * * *": [
-            "mumal_hr.api.mark_attendance"
+            "mumal_hr.api.set_attendance_date"
         ]
     }
 }

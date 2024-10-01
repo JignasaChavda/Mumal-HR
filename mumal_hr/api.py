@@ -93,14 +93,16 @@ def mark_attendance(date, shift):
 
                 if log_type == "OUT":
                     last_chkout = name
+      
             
             # Print using frappe.msgprint
             # frappe.msgprint(f"Employee: {emp_name}, Date: {checkin_date}, First Check-in: {first_chkin}, Last Checkout: {last_chkout}")
             
             if first_chkin and last_chkout:
+                
                 exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': checkin_date, 'docstatus': 1}, ['name'])
                 if not exists_atte:
-                    
+
                     chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
                     chkout_datetime = frappe.db.get_value('Employee Checkin', last_chkout, 'time')
 
@@ -166,9 +168,11 @@ def mark_attendance(date, shift):
 @frappe.whitelist(allow_guest=True)
 def set_attendance_date():
     
-    yesterday_date = add_to_date(datetime.now(), days=-1)
-    date = yesterday_date.strftime('%Y-%m-%d')
-    
+    # yesterday_date = add_to_date(datetime.now(), days=-1)
+    # date = yesterday_date.strftime('%Y-%m-%d')
+
+    date = today()
+
     shift_types = frappe.get_all("Shift Type", filters={'enable_auto_attendance':1},fields=['name'])
     if shift_types:
         for shifts in shift_types:
