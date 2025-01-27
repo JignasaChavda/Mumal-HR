@@ -55,9 +55,10 @@ class SalarySlip(OriginalSalarySlip):
         holiday_list = frappe.db.get_value('Employee', emp, 'holiday_list')
         category = frappe.db.get_value('Employee', emp, 'custom_payroll_category')
 
+
         payroll_based_on = frappe.db.get_single_value('Payroll Settings', 'payroll_based_on')
 
-        general_holidays = frappe.get_list('Holiday', {
+        general_holidays = frappe.get_all('Holiday', {
             'parent': holiday_list,
             'weekly_off': 0,
             'holiday_date': ['between', [self.start_date, self.end_date]]
@@ -65,7 +66,8 @@ class SalarySlip(OriginalSalarySlip):
 
         holiday_count = len(general_holidays)
 
-        weekly_off = frappe.get_list('Holiday', {
+
+        weekly_off = frappe.get_all('Holiday', {
             'parent': holiday_list,
             'weekly_off': 1,
             'holiday_date': ['between', [self.start_date, self.end_date]]
