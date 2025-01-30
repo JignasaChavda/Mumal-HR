@@ -31,12 +31,13 @@ class SalarySlip(OriginalSalarySlip):
             self.get_working_days_details(lwp=self.leave_without_pay)
 
         self.calculate_custom_working_days()
-        self.calculate_net_pay()
+        if self.is_new():
+            self.calculate_net_pay()
         self.compute_year_to_date()
         self.compute_month_to_date()
         self.compute_component_wise_year_to_date()
         self.add_leave_balances()
-        self.compute_income_tax_breakup()
+         
 
         if frappe.db.get_single_value("Payroll Settings", "max_working_hours_against_timesheet"):
             max_working_hours = frappe.db.get_single_value(
