@@ -1,6 +1,5 @@
 [
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".flex-container {\n    \n    display: flex;\n\n}\n.line-height{\n    line-height: 1.7;\n}\n.sectionmargin {\n    margin-left: 20px;\n    margin-right: 20px;\n}",
@@ -32,7 +31,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "\n.paragraph{\n    margin-left:10px;\n    margin-right:10px;\n}\n\n\n.underline {\n    border-bottom: 1px solid black;\n}\n\n\n.font {\n    font-size: 15px;\n}\n\nhr{\n    margin-top: 25px !important;\n    margin-bottom:1px !important;\n}\n\n.custom-table {\n    border-collapse: collapse; \n}\n.custom-table td {\n    padding: 5px; \n}\n.custom-table tr + tr {\n    margin-top: -5px; \n}",
@@ -64,7 +62,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".signature{\n    margin-top:50px !important;\n}\n.print-format {\n    font-size: 15px !important;\n    line-height: 1.5rem !important;\n    padding: 1px !important;\n}",
@@ -96,7 +93,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "h4{\n    margin: 20px 0px 10px !important;\n}\n.signature{\n    margin-top:50px !important;\n}\n.print-format {\n    font-size: 14px !important;\n    line-height: 1.5rem !important;\n    padding: 5px !important;\n}\n.space{\n    line-height: 1.7rem !important;\n    margin-top: 30px !important;\n}\ntable{\n    font-size:14px !important;\n    margin: 20px 0px !important;\n}\n.print-format td, .print-format th {\n    padding: 5px !important;\n    color: #1F272E !important;\n}.print-format th {\n  font-weight: bold !important;\n}",
@@ -128,7 +124,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".sectionmargin {\n    margin-left: 5%;\n    margin-right: 5%;\n    \n}\n.print-format td {\n   \n    padding: 5px !important;\n}\n.flex-container {\n    width: 100%;\n    \n}\n.flex-container .left-side {\n    display: inline-block;\n    width: 50%; /* Takes up half the width */\n    text-align: left; /* Aligns the text to the left */\n}\n.flex-container .right-side {\n    display: inline-block;\n    width: 50%; /* Takes up half the width */\n    text-align: right; /* Aligns the text to the right */\n}\n.print-format .row:not(.section-break) {\n    line-height:1.6;\n    margin-top: 0px !important;\n}\n@media (min-width: 768px){\n.container {\n    width: 500px;\n    height: 20px;\n}\n}\n",
@@ -160,7 +155,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "",
@@ -192,7 +186,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".text-right{\n    text-align: right;\n}\nh2{\n    text-align: center;\n    text-transform: uppercase;\n}\n.print-format{\n    font-size: 15px;\n    padding: 4px !important;\n    line-height: 1.8 !important;\n}\n.space-top{\n    padding-top: 20px;\n    text-align: justify;\n}\n.info{\n    padding: 40px 0px 30px 0px !important;\n}\n.info-last{\n    padding-top: 80px !important;\n}",
@@ -224,7 +217,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".print-format td {\n    padding: 5px !important;\n    \n}\n\n.print-format th {\n    padding: 5px !important;\n    color: black;\n    \n}",
@@ -256,7 +248,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".print-format td, .print-format th {\n    font-size: 14px !important;\n    \n}",
@@ -288,7 +279,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".no-bottom-padding {\n        margin-bottom: 1px !important;\n    }",
@@ -320,7 +310,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "\n.sectionmarginfirst{\n\n    font-size: 13px !important;\n    line-height: 1.5; \n}\n.right-text{\n    text-align: right;\n}\n.address{\n    margin: 20px 0px !important;\n}\n.lineheight{\n    line-height: 1.8;\n}\n.content{\n    margin-top: 5px !important;\n    line-height: 1.8;\n}\n\n.content ol {\n    margin: 0;\n    padding-left: 20px;\n}\n.content li {\n    margin-bottom: 10px;\n}\n\n.sectiontable {\n        min-height: 100%;\n        display: flex;\n        flex-direction: column;\n        \n    }\n    .tablemargin{\n        width: 30rem !important;\n        \n    }\ntd{\n    height: 80% !important;\n}\ntd:first-child{\n    width: 60%;\n}\ntd:nth-child(2){\n    width: 40%;\n    text-align: center;\n}\ntd{\n    color: #000 !important;\n    padding: 0px !important;\n}\n.print-format td, .print-format td {\n    padding: 5px !important;\n}\n.center-align {\n    text-align: center;\n}\n.left-align {\n    text-align: left;\n}\n.fixed-height {\n        height: 25px;\n    }\n.total{\n    background-color: #f4f5f6;\n}\n.head{\n    font-size: 12px !important;\n}",
@@ -352,7 +341,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".font{\n    font-size: 14px;\n}\n\nh2,h4{\n    text-align: center;\n}\n\n\n\n.sectionmarginfirst{\n    margin-top: 5px;\n    line-height: 1; \n}\n\n.sectionmargin{\n    margin-top: 15px;\n}\n\n.print-format td, .print-format th {\n    padding: 5px !important;\n    color: black !important;\n}\n\n.print-format th {\n    font-weight: bold;\n}\n\n.table-cell-label {\n    width: 40%;\n}\n.table-cell-value {\n    width: 60%;\n}\n\n.title{\n    font-weight: bold;\n}\n\n.linespace {\n    line-height: 1.2;\n    margin-bottom: 8px;\n}\n\n\nth:first-child, th:nth-child(3) {\n    width: 40%;\n    text-align: left;\n}\nth:nth-child(2), th:nth-child(4) {\n    width: 10%;\n    text-align: left;\n}\n.left-align {\n    text-align: left !important;\n}\n.right-align {\n    text-align: right;\n}\n\n.sectioncomment, .sectionsalary, .sectionsignature{\n    margin-top: 25px;\n}\n\n.sectionsalary th{\n    width: 20%;\n}\n\n.sectionsignature td {\n    width: 50%;\n}\n\n.sectionsignature span{\n    line-height: 1.5; \n}\n\n.page-footer {\n    display: flex;\n    justify-content: space-between;\n    align-items: center;\n}\n\n.footer-left {\n    text-align: left;\n}\n\n.footer-right {\n    text-align: right;\n}\n\n\n.sectionmargin {\n    margin: 20px;\n}\n.linespace {\n    margin-bottom: 20px;\n}\n\n.rating-scale {\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: space-between;\n}\n.rating-scale p {\n    flex: 0 0 48%;\n    margin: 0;\n}\n\n.cellmargin{\n    padding-bottom: 50px !important;\n}",
@@ -384,7 +372,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".print-format {\n    padding:1px !important;\n}\n.font{\n    font-size: 13px !important;\n}\n\n.sectiontable{\n    margin: 2rem 8rem !important;\n}\n\n.center-align {\n    text-align: center;\n}\n\n.fixed-height {\n    height: 7px;\n}\n\n.head{\n    font-size: 12px !important;\n}\n\n.total{\n    background-color: #f4f5f6;\n}\n.print-format td{\n    padding:4px !important;\n}\n.tablepadding{\n    \n    font-size:12px !important;\n}\n\n.page-container {\n    display: flex;\n    flex-direction: column;\n    /*min-height: 100vh;*/\n}\n\n.sectiontable {\n    flex-grow: 1;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n}\n\n.table-container {\n    /*width: 80%;*/\n    margin: 0 auto;\n}\n\n.footer {\n    text-align: right;\n    margin-top: auto;\n    padding: 10px 0;\n}",
@@ -416,7 +403,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "html, body {\n    height: 100%;\n    margin: 0;\n}\n\n.container {\n    display: flex;\n    flex-direction: column;\n    min-height: 100vh;\n    box-sizing: border-box;\n}\n.footer {\n   position: fixed;\n   left: 0;\n   bottom: 0;\n   width: 100%;\n   background-color: red;\n   color: white;\n   text-align: center;\n}\nh2 {\n    text-align: center;\n    font-weight: bold !important;\n    margin-bottom: 20px !important;\n}\n\n.print-format {\n    padding: 2px !important;\n    font-size: 15px !important;\n}\n\n.print-format td, .print-format th {\n    padding: 5px !important;\n}\n\nth, td {\n    border: 1px solid black !important;\n    text-align: left;\n    word-wrap: break-word;\n}\n\nth {\n    color: black !important;\n    font-weight: bold !important;\n}\n\ntd {\n    width: 50%;\n}\n\ntable {\n    width: 100%;\n    border-collapse: collapse;\n    margin: 1rem 0px;\n    font-size: 14px !important;\n    table-layout: fixed;\n}\n.name {\n    margin-bottom: 5px !important;\n}\n\n.signatures {\n    padding: 20px 0;\n    position: fixed;    \n       bottom: 0px; \n       width: 100%;\n}\ndiv.relative {\n  position: relative;\n  width: 400px;\n  height: 200px;\n  border: 3px solid #73AD21;\n} \n\ndiv.absolute {\n  position: absolute;\n  top: 80px;\n  right: 0;\n  width: 200px;\n  height: 100px;\n  border: 3px solid #73AD21;\n}\n.signatures .first {\n    margin-bottom: 100px; \n}\n",
@@ -448,7 +434,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".font{\n    font-size: 13px;\n}\n/*.sectiontable{*/\n/*    margin: 2rem 2rem !important;*/\n/*}*/\n\n.print-format {\n    padding: 5px !important;\n}",
@@ -480,7 +465,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".print-format{\n    font-size: 16px;\n    line-height: 1.8 !important;\n    padding: 4px !important;\n    \n}\n\n.tableborder{\n    border: 1px solid black;\n    font-size: 13px !important;\n}\n\n.total{\n    background-color: #f4f5f6;\n}\n\ntable{\n    font-size: 13px !important;\n}\n\n.print-format td, .print-format th {\n    padding: 5px !important;\n}\n\n\n\n\n",
@@ -512,7 +496,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".font {\n    font-size: 14px;\n}\n.tdpadding {\n    border: 1px solid black;\n}\n.print-format td {\n    padding: 5px !important; \n}",
@@ -544,7 +527,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "",
@@ -576,7 +558,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": "body, table, td, th, label, input {\n        font-size: 14px;\n    }\n.print-format td{\n    padding: 6px 0px !important;\n}\n.print-format {\n    padding: 0.05in !important;\n    font-size: 10px !important;\n}\n.print-format label {\n    font-size: 13px !important;\n    color: #36414c !important;\n}\n\n.custom-checkbox {\n    display: inline-flex;\n    align-items: center; \n    font-size: 16px;\n    vertical-align: middle;\n}\n\n.custom-checkbox input {\n    position: absolute;\n    opacity: 0;\n    height: 0;\n    width: 0;\n}\n\n\n.custom-checkbox .checkmark {\n    display: inline-block;\n    position: relative;\n    height: 15px; /* Adjust size to 14px */\n    width: 15px;  /* Adjust size to 14px */\n    border: 1px solid #808080;\n    border-radius: 4px;\n    margin: 0px 5px 0px 0px;\n    top: 2px;\n    text-align: center;\n    line-height: 14px; /* Center checkmark vertically */\n    color: transparent; /* Default color */\n}\n\n\n\n/* Style when checkbox is checked */\n.custom-checkbox input:checked ~ .checkmark {\n    background-color: #2490EF; /* Background color when checked */\n    border: 1px solid #2490EF; /* Border color when checked */\n    color: transparent; /* Ensure no default color for checkmark */\n}\n\n/* Checkmark appearance */\n.custom-checkbox input:checked ~ .checkmark:after {\n    content: \"\\2714\"; /* Unicode checkmark character */\n    position: absolute;\n    right: 1px;\n    font-size: 13px; /* Adjust size of the checkmark */\n    color: white; /* Color of the checkmark */\n}\n\nh2{\n    margin: 0px !important;\n}\nh4{\n    font-size: 15px !important;\n    margin: 0px 0px 10px !important;\n}\nh5{\n    font-size: 16px !important;\n}\n.section{\n    margin-top: 10px !important;\n    font-size: 10px !important;\n}\n.sectionfourth{\n    margin-top: 0px !important;\n    font-size: 10px !important;\n}\n.eightquestion{\n    color:#080808;\n    font-weight: 600;\n}\n.eightanswer{\n    color:#696969;\n    font-weight: 500;\n}\n.sectioneight{\n    margin-top: 10px !important;\n    font-size: 10px !important;\n}\n.newquestion{\n    margin-top: 25px !important;\n}\n\n.firstsubquestion{\n    margin-top: 20px !important;\n}\n.newquestioneight{\n    margin-top: 25px !important;\n    font-weight:900 !important;\n}\n.column {\n  float: left;\n  width: 33.33%;\n}\n.head{\n    font-size:14px !important;\n}\n.question_f_third_question{\n    font-size: 12px !important;\n    line-height: 1rem !important;\n    font-weight: 600 !important;\n}\n.question_f_third{\n    margin-right: 20px !important;\n}\n.textarea{\n    font-size:12px !important;\n    white-space: pre-line;\n    background: #F4F5F6; \n    padding:6px 8px; \n    border-radius: 4px; \n    margin-right:25px !important;\n    line-height: 1.1rem !important;\n}\n.textareanullvalue{\n    font-size:12px !important;\n    white-space: pre-line;\n    background: #F4F5F6; \n    padding:6px 8px; \n    border-radius: 4px; \n    margin-right:25px !important;\n    height: 50px;\n}\n\n@media print {\n    @page {\n        margin: 0.30in !important;\n    }\n    .textarea{\n        color: #36414c !important;\n    }\n    \n    .column{\n        margin-bottom: 40px !important;\n    }\n   \n    .eightquestion{\n        color:#080808;\n        font-weight: 600;\n    }\n    .eightanswer{\n        color:#696969;\n        font-weight: 500;\n    }\n}\n\n",
@@ -608,7 +589,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".font{\n    font-size: 15px;\n}\n\n.tableborder{\n    border: 1px solid black;\n}\n\n.print-format {\n    padding: 4px !important;\n}\n\n.print-format td {\n    padding: 4px !important;\n}\n\n.print-format th {\n    padding: 4px !important;\n}\n\n",
@@ -640,7 +620,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".border{\n    border: 1px solid black;\n}\n\n.font{\n    font-size: 16px;\n}",
@@ -672,7 +651,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".border{\n    border: 1px solid black;\n}\n\n.font{\n    font-size: 16px;\n}",
@@ -704,7 +682,6 @@
   "standard": "No"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "absolute_value": 0,
   "align_labels_right": 0,
   "css": ".vl{\r    border:1px solid black;\r    width:1;\r    padding-left:50 !important;\r    padding-right:50 !important;\r}\r.heading {\r    line-height: 1.5;\r    font-size:22px;\r    font-weight: 650;\r}\r.sub-heading {\r    font-size: 18;\r    font-weight: 650;\r}\r.emp-data{\r    color:#000000;\r}\r.myTable{\r    margin-bottom:10px;\r}\r.print-format label {\r    font-weight: normal;\r    font-size: 13px;\r    margin-bottom: 0;\r}\r.print-format .row:not(.section-break) {\r     line-height: 1.6; \r     margin-top: 0px !important;\r     padding: 0px !important;\r}\r\r.empDetail{\r    height:350;\r    width: 100%;\r    text-align: left;\r    border: 2px solid black;\r    table-layout:fixed;\r    font-size: 13;\r}\r.tableHeading{\r    border:1px solid black;\r    font-weight:bold !important;\r    color:#000000 !important;\r    text-align:center;\r    width:180\r}\r.tableHeading2{\r    border:1px solid black;\r    font-weight:bold !important;\r    color:#000000 !important;\r    text-align:center;\r    width:90\r}\r.tableData{\r    border-right:1px solid black;\r    text-align:left;\r   \r}\r.tableTotal{\r    border:1px solid black;\r    font-weight:bold;\r    color:#000000\r}\r.netRow{\r    border:1px solid black;\r    font-weight:bold;\r    color:#000000\r}\r.netHeading{\r    font-weight:bold !important;\r    color:#000000 !important;\r    width:5 !important;\r}\r.netData{\r    font-weight:bold;\r    color:#000000\r}\r.netInwordsRow{\r    font-weight:bold;\r    color:#000000;\r    border-top:hidden\r}\r.netInwordsHeading{\r    font-weight:bold !important;\r    color:#000000 !important;\r    width:2;\r}\r\r.myBackground {\r    text-align: left;\r    border: 1px solid black;\r    height: 0.2;\r}\r.dashedHR{\r    border-bottom: dashed 1px #000000;\r    margin-top: 5px;\r    margin-bottom: 7px;\r}\r.table2{\r    border:1px solid black;\r    font-weight:bold !important;\r    color:#000000 !important;\r    font-size:12;\r    padding-left:10px;\r    padding-right:10px;\r    /*padding:1px !important*/\r}\r.table3{\r    margin-left:15px !important;\r}\r\r/*.print-format td, .print-format th {*/\r/*    padding: 7px ;*/\r/*}*/\r.print-format td, .print-format th {\r     padding:7px !important;\r}\r\r.print-format th {\r    background-color: #fff !important;\r    border-bottom: 1px solid black !important;\r}\r@media print{\r    .print-format th{\r        height:10px;\r        border :1px solid black;\r        font-size:12px;\r        \r    }\r    .print-format td{\r         font-size:12px;\r    }\r    .emp-data{\r        font-size:12px;\r    }\r    .heading {\r        line-height: 1.5;\r        font-size:24px;\r        font-weight: 700;\r    }\r    .sub-heading {\r        font-size: 15px;\r        font-weight: 600;\r    }\r    .custompaddig{\r        width:105px;\r    }\r       .custompaddig2{\r        width:70px;\r    }\r    \r    .table2{\r        font-size:10px !important;\r    }\r}\r\r\r.table-container {\r        display: flex;\r        justify-content: space-between;\r    }\r    /*.table-container .table3 {*/\r    /*    width: 100%;*/\r    /*}*/\r    /*.table2 {*/\r    /*    width: 100%;*/\r    /*}*/\r",

@@ -110,7 +110,6 @@
   "view": "Form"
  },
  {
-  "_liked_by": "[]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Exit Questionnaire",
@@ -122,7 +121,6 @@
   "view": "Form"
  },
  {
-  "_liked_by": "[]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Job Requisition",
@@ -134,7 +132,6 @@
   "view": "Form"
  },
  {
-  "_liked_by": "[]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Full and Final Statement",
@@ -146,7 +143,6 @@
   "view": "Form"
  },
  {
-  "_liked_by": "[]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Employee Increment",
@@ -216,27 +212,25 @@
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Employee Increment",
-  "enabled": 1,
-  "modified": "2024-09-30 08:22:01.286947",
+  "enabled": 0,
+  "modified": "2025-02-27 17:02:09.832583",
   "module": "Mumal HR",
   "name": "Workflow based Increment Flow",
   "script": "frappe.ui.form.on('Employee Increment', {\n    refresh: function(frm) {\n        const status = frm.doc.status;\n            \n        if (!frappe.user.has_role(\"Administrator\")) {\n            \n            if (frm.is_new()){\n                let status_options = ['Pending'];\n                frm.set_df_property('status', 'options', status_options);\n            }\n                \n        \n    \n            if (!frm.is_new()) {\n                \n                // Ensure Pending status is visible to anyone\n                let status_options = [];\n        \n                // Role-specific status options\n                if (frappe.user.has_role(\"Head of Department\")) {\n                    status_options.push('Pending', 'Approved by HOD', 'Rejected by HOD');\n                }\n                if (frappe.user.has_role(\"HR Manager\")) {\n                    status_options.push('Approved by HR', 'Rejected by HR');\n                }\n                if (frappe.user.has_role(\"Managing Director\")) {\n                    status_options.push('Approved by MD', 'Rejected by MD');\n                }\n                \n                // Set status options based on role\n                frm.set_df_property('status', 'options', status_options);\n        \n                // Make the form read-only if status is Approved or Rejected by MD\n                if (status === 'Approved by MD' || status === 'Rejected by MD') {\n                    frm.set_read_only();\n                    frm.refresh_fields();\n                    return; \n                }\n                \n                \n                if (frappe.user.has_role(\"Head of Department\")) {\n                    if (status !== 'Pending' && status !== 'Rejected by HOD' && status !== 'Approved by HOD') {\n                        frm.set_read_only();\n                        frm.refresh_fields();\n                    }\n                }\n                if (frappe.user.has_role(\"HR Manager\")) {\n                    if (status !== 'Approved by HR' && status !== 'Rejected by HR' && status !== 'Approved by HOD') {\n                        frm.set_read_only();\n                        frm.refresh_fields();\n                    }\n                }\n                if (frappe.user.has_role(\"Managing Director\")) {\n                    if (status !== 'Approved by MD' && status !== 'Rejected by MD' && status !== 'Approved by HR') {\n                        frm.set_read_only();\n                        frm.refresh_fields();\n                    }\n                }\n            }\n        }\n    }\n});\n",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Shift Type",
   "enabled": 1,
-  "modified": "2024-09-30 08:22:01.335399",
+  "modified": "2025-02-27 15:57:33.594223",
   "module": "Mumal HR",
   "name": "custom attendance via Get attendance button",
-  "script": "frappe.ui.form.on('Shift Type', {\n\trefresh:function(frm) {\n\n    // Hide Default Mark Attendance Button\n    $('[data-label=\"Mark%20Attendance\"]').hide();\n    \n    \n    frm.add_custom_button(__(\"Get Attendance\"), function() {\n        var from_date = frm.doc.process_attendance_after;\n        var shift = frm.doc.name;\n        var shift_type = frm.doc.type;\n        var batchSize = 3; \n\n        \n        frappe.call({\n            method: \"mumal_hr.api.mark_attendance\",\n            args: {\n                \"date\": from_date,\n                \"shift\": shift,\n                freeze: true,\n                freeze_message: \"Please wait ..\"\n            },\n            callback: function(r) {\n                var res = r.message;\n                res.forEach(function(message) {\n                    frappe.msgprint(message);\n                });\n               \n            }\n        });\n    });\n\t},\n\tprocess_attendance_after: function(frm) {\n        frm.save();\n    }\n\t\n});\n\n",
+  "script": "frappe.ui.form.on('Shift Type', {\n\trefresh:function(frm) {\n\n    // Hide Default Mark Attendance Button\n    $('[data-label=\"Mark%20Attendance\"]').hide();\n    \n    \n    frm.add_custom_button(__(\"Get Attendance\"), function() {\n        var from_date = frm.doc.process_attendance_after;\n        var shift = frm.doc.name;\n        var shift_type = frm.doc.type;\n        var batchSize = 3; \n\n        \n        frappe.call({\n            method: \"mumal_hr.api.mark_attendance\",\n            args: {\n                \"date\": from_date,\n                \"shift\": shift,\n                freeze: true,\n                freeze_message: \"Please wait ..\"\n            },\n            callback: function(r) {\n                var res = r.message;\n                console.log(r)\n                // res.forEach(function(message) {\n                //     frappe.msgprint(message);\n                // });\n               \n            }\n        });\n    });\n\t},\n\tprocess_attendance_after: function(frm) {\n        frm.save();\n    }\n\t\n});\n\n",
   "view": "Form"
  },
  {
-  "_liked_by": "[\"Administrator\"]",
   "docstatus": 0,
   "doctype": "Client Script",
   "dt": "Shift Type",

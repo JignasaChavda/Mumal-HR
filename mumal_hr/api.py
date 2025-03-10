@@ -1,8 +1,10 @@
 import frappe
 from frappe.utils import nowdate
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from frappe.utils.data import add_to_date
+
+
 
 
 
@@ -90,24 +92,64 @@ def mark_attendance(date, shift):
 
                 if log_type == "IN" and first_chkin is None:
                     first_chkin = name
+                    chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
+                    chkin_time = frappe.utils.get_time(chkin_datetime)
 
                 if log_type == "OUT":
                     last_chkout = name
+                    chkout_datetime = frappe.db.get_value('Employee Checkin', last_chkout, 'time')
+                    chkout_time = frappe.utils.get_time(chkout_datetime)
       
+            att_late_entry = 0
+            att_early_exit = 0
             
             # Print using frappe.msgprint
             # frappe.msgprint(f"Employee: {emp_name}, Date: {checkin_date}, First Check-in: {first_chkin}, Last Checkout: {last_chkout}")
+            # Calculate late entry, early exit
+            half_day_hour = frappe.db.get_value('Shift Type', shift, 'working_hours_threshold_for_half_day')
+            absent_hour = frappe.db.get_value('Shift Type', shift, 'working_hours_threshold_for_absent')
+
+            shift_start_time = frappe.db.get_value('Shift Type', shift, 'start_time')
+            late_entry_grace_period = frappe.db.get_value('Shift Type', shift, 'late_entry_grace_period')
+            shift_start_time = frappe.utils.get_time(shift_start_time)
+            shift_start_datetime = datetime.combine(checkin_date, shift_start_time)
+            grace_late_datetime = frappe.utils.add_to_date(shift_start_datetime, minutes=late_entry_grace_period)
+            grace_late_time = grace_late_datetime.time()
+
+            shift_end_time = frappe.db.get_value('Shift Type', shift, 'end_time')
+            early_exit_grace_period = frappe.db.get_value('Shift Type', shift, 'early_exit_grace_period')
+            shift_end_time = frappe.utils.get_time(shift_end_time)
+            shift_end_datetime = datetime.combine(checkin_date, shift_end_time)
+            grace_early_datetime = frappe.utils.add_to_date(shift_end_datetime, minutes=-early_exit_grace_period)
+            grace_early_time = grace_early_datetime.time()
             
+            
+
+            if chkin_time and chkout_time > grace_late_time:
+                late_entry_timedelta = frappe.utils.time_diff(str(chkin_time), str(grace_late_time))
+                total_late_entry_seconds = late_entry_timedelta.total_seconds()
+                late_entry_hour = int(total_late_entry_seconds // 3600)
+                late_entry_minute = int((total_late_entry_seconds % 3600) // 60)
+                late_entry_hours_final = f"{late_entry_hour:02d}.{late_entry_minute:02d}"
+                att_late_entry = 1
+
+            if chkin_time and chkout_time < grace_early_time:
+                early_exit_timedelta = frappe.utils.time_diff(str(grace_early_time), str(chkout_time))
+                total_early_exit_seconds = early_exit_timedelta.total_seconds()
+                early_exit_hour = int(total_early_exit_seconds // 3600)
+                early_exit_minute = int((total_early_exit_seconds % 3600) // 60)
+                early_exit_hours_final = f"{early_exit_hour:02d}.{early_exit_minute:02d}"
+                att_early_exit = 1
+
+         
+         
+
             if first_chkin and last_chkout:
                 
                 exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': checkin_date, 'docstatus': 1}, ['name'])
                 if not exists_atte:
 
-                    chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
-                    chkout_datetime = frappe.db.get_value('Employee Checkin', last_chkout, 'time')
-
-                    chkin_time = frappe.utils.get_time(chkin_datetime)
-                    chkout_time = frappe.utils.get_time(chkout_datetime)
+                   
 
                     attendance = frappe.new_doc("Attendance")
                     attendance.employee = emp_name
@@ -119,6 +161,8 @@ def mark_attendance(date, shift):
                     attendance.check_out_time = chkout_time
                     attendance.custom_employee_checkin = first_chkin
                     attendance.custom_employee_checkout = last_chkout
+                    attendance.late_entry = att_late_entry
+                    attendance.early_exit = att_early_exit
                     attendance.status = "Present"
 
                     attendance.insert(ignore_permissions=True)
@@ -137,8 +181,7 @@ def mark_attendance(date, shift):
             elif first_chkin and not last_chkout:
                 exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': checkin_date, 'docstatus': 1}, ['name'])
                 if not exists_atte:
-                    chkin_datetime = frappe.db.get_value('Employee Checkin', first_chkin, 'time')
-                    chkin_time = frappe.utils.get_time(chkin_datetime)
+                   
 
                     attendance = frappe.new_doc("Attendance")
                     attendance.employee = emp_name
@@ -147,6 +190,7 @@ def mark_attendance(date, shift):
                     attendance.in_time = chkin_datetime
                     attendance.check_in_time = chkin_time
                     attendance.custom_employee_checkin = first_chkin
+                    attendance.late_entry = att_late_entry
                     attendance.status = "Half Day"
                     attendance.custom_remarks = "No OutPunch"
 
