@@ -22,7 +22,7 @@ def execute(filters=None):
                 WHEN s.leave_without_pay > 0 THEN '1' 
                 WHEN e.status = 'Left' AND e.relieving_date BETWEEN s.start_date AND s.end_date THEN '2' 
                 WHEN e.date_of_retirement BETWEEN s.start_date AND s.end_date THEN '3' 
-                ELSE '' 
+                ELSE '0'  -- Default to '0' when no other reason applies
             END AS reason_code, 
             CASE 
                 WHEN e.status = 'Left' AND e.relieving_date BETWEEN s.start_date AND s.end_date THEN DATE_FORMAT(e.relieving_date, '%%d-%%m-%%Y')
