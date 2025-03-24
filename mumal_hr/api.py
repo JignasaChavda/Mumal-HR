@@ -171,18 +171,18 @@ def mark_attendance(date, shift):
                         is_holiday = True
                         break
             
-            if not is_holiday:
-                exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': date, 'docstatus': 1}, ['name'])
-                if not exists_atte:
-                    attendance = frappe.new_doc("Attendance")
-                    attendance.employee = emp_name
-                    attendance.attendance_date = date
-                    attendance.shift = shift
-                    attendance.status = "Absent"
-                    attendance.custom_remarks = "No Checkin found"
-                    attendance.insert(ignore_permissions=True)
-                    attendance.submit()
-                    frappe.db.commit()
+            # if not is_holiday:
+            #     exists_atte = frappe.db.get_value('Attendance', {'employee': emp_name, 'attendance_date': date, 'docstatus': 1}, ['name'])
+            #     if not exists_atte:
+            #         attendance = frappe.new_doc("Attendance")
+            #         attendance.employee = emp_name
+            #         attendance.attendance_date = date
+            #         attendance.shift = shift
+            #         attendance.status = "Absent"
+            #         attendance.custom_remarks = "No Checkin found"
+            #         attendance.insert(ignore_permissions=True)
+            #         attendance.submit()
+            #         frappe.db.commit()
 
     
     # Calculate working hours
@@ -382,14 +382,10 @@ def mark_attendance(date, shift):
                     attendance.shift = shift
                     attendance.in_time = chkin_datetime
                     attendance.custom_first_chckin = first_checkin
-                    attendance.custom_work_hours_ = 0
-                    attendance.custom_overtime = 0
-                    attendance.status = 'Absent'
-                    attendance.custom_late_entry_hours = 0
-                    attendance.custom_early_exit_hours = 0
-                    attendance.late_entry = 0
+                    attendance.status = 'Half Day'
+                    attendance.late_entry = att_late_entry
                     attendance.early_exit = 0
-                    attendance.custom_remarks = 'No Checkout record found'
+                    attendance.custom_remarks = 'No OutPunch'
 
                     attendance.insert(ignore_permissions=True)
                     attendance.submit()
